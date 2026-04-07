@@ -1,0 +1,106 @@
+---
+const navLinks = [
+  { href: '/', label: 'Strona główna' },
+  { href: '/o-nas', label: 'O nas' },
+  { href: '/restrukturyzacja', label: 'Restrukturyzacja' },
+  { href: '/upadlosc', label: 'Upadłość' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <span class="font-heading text-2xl font-bold text-white header-scrolled:text-navy-900 transition-colors duration-300">
+          Solviro<span class="text-gold">.</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-white/90 hover:text-gold header-scrolled:text-navy-700 header-scrolled:hover:text-gold transition-colors duration-300"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Button -->
+      <a
+        href="#formularz"
+        class="hidden lg:inline-flex items-center justify-center px-6 py-3 bg-gold text-navy-900 font-semibold text-sm hover:bg-gold-light transition-colors duration-300"
+      >
+        Umów wizytę
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="lg:hidden p-2 text-white header-scrolled:text-navy-900 transition-colors duration-300"
+        aria-label="Otwórz menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 py-4 space-y-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block py-2 text-navy-700 hover:text-gold font-medium transition-colors duration-300"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#formularz"
+        class="block w-full text-center py-3 bg-gold text-navy-900 font-semibold hover:bg-gold-light transition-colors duration-300 mt-4"
+      >
+        Umów wizytę
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>
+
+<style>
+  #main-header.scrolled {
+    @apply bg-white/95 backdrop-blur-md shadow-sm;
+  }
+
+  #main-header.scrolled .header-scrolled\:text-navy-900 {
+    @apply text-navy-900;
+  }
+
+  #main-header.scrolled .header-scrolled\:text-navy-700 {
+    @apply text-navy-700;
+  }
+
+  #main-header.scrolled .header-scrolled\:hover\:text-gold:hover {
+    @apply text-gold;
+  }
+</style>
+
