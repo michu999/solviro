@@ -9,7 +9,8 @@ interface Props {
 }
 
 const { title, description = 'Solviro Legal — Kancelaria specjalizująca się w restrukturyzacjach i upadłościach' } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = Astro.site ?? new URL('https://solviro.pl');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
 <!DOCTYPE html>
@@ -32,10 +33,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - DM Sans + Source Sans 3 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -55,7 +56,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </script>
   </head>
-  <body class="font-body text-navy-900 bg-white antialiased">
+  <body class="font-body text-black bg-white antialiased">
     <Header />
     <main>
       <slot />

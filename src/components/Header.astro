@@ -17,7 +17,7 @@ const navLinks = [
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <span class="font-heading text-2xl font-bold text-white header-scrolled:text-navy-900 transition-colors duration-300">
+        <span class="font-heading text-2xl font-bold text-black header-scrolled:text-black transition-colors duration-300">
           Solviro<span class="text-gold">.</span>
         </span>
       </a>
@@ -27,7 +27,7 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="text-sm font-medium text-white/90 hover:text-gold header-scrolled:text-navy-700 header-scrolled:hover:text-gold transition-colors duration-300"
+            class="text-sm font-medium text-gray-700 hover:text-gold transition-colors duration-300"
           >
             {link.label}
           </a>
@@ -37,7 +37,7 @@ const navLinks = [
       <!-- CTA Button -->
       <a
         href="#formularz"
-        class="hidden lg:inline-flex items-center justify-center px-6 py-3 bg-gold text-navy-900 font-semibold text-sm hover:bg-gold-light transition-colors duration-300"
+        class="hidden lg:inline-flex items-center justify-center px-6 py-3 rounded-md border-2 border-black text-black font-semibold text-sm hover:bg-gold hover:border-gold transition-all duration-300"
       >
         Umów wizytę
       </a>
@@ -46,7 +46,7 @@ const navLinks = [
       <button
         id="mobile-menu-button"
         type="button"
-        class="lg:hidden p-2 text-white header-scrolled:text-navy-900 transition-colors duration-300"
+        class="lg:hidden p-2 text-black transition-colors duration-300"
         aria-label="Otwórz menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,14 +62,14 @@ const navLinks = [
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="block py-2 text-navy-700 hover:text-gold font-medium transition-colors duration-300"
+          class="block py-2 text-gray-700 hover:text-gold font-medium transition-colors duration-300"
         >
           {link.label}
         </a>
       ))}
       <a
         href="#formularz"
-        class="block w-full text-center py-3 bg-gold text-navy-900 font-semibold hover:bg-gold-light transition-colors duration-300 mt-4"
+        class="block w-full text-center py-3 rounded-md border-2 border-black text-black font-semibold hover:bg-gold hover:border-gold transition-all duration-300 mt-4"
       >
         Umów wizytę
       </a>
@@ -88,19 +88,9 @@ const navLinks = [
 
 <style>
   #main-header.scrolled {
-    @apply bg-white/95 backdrop-blur-md shadow-sm;
-  }
-
-  #main-header.scrolled .header-scrolled\:text-navy-900 {
-    @apply text-navy-900;
-  }
-
-  #main-header.scrolled .header-scrolled\:text-navy-700 {
-    @apply text-navy-700;
-  }
-
-  #main-header.scrolled .header-scrolled\:hover\:text-gold:hover {
-    @apply text-gold;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
 </style>
 
