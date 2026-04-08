@@ -1,54 +1,50 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
 ---
 
 <Layout title="O nas — Solviro Legal" description="Poznaj zespół Solviro Legal. Kancelaria specjalizująca się w restrukturyzacjach i upadłościach.">
   
-  <!-- Hero Section -->
-  <section class="pt-32 pb-20 bg-beige">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="inline-block text-gold font-semibold text-sm uppercase tracking-wider mb-4">O nas</span>
-        <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight mb-6">
-          Poznaj Solviro Legal
-        </h1>
-        <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    title="Poznaj Solviro Legal"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
+    breadcrumb={[
+      { label: 'Strona główna', href: '/' },
+      { label: 'O nas', href: '/o-nas' }
+    ]}
+  />
 
   <!-- Team Section -->
-  <section class="py-20 sm:py-28 bg-white">
+  <section class="py-20 sm:py-28" style="background-color: var(--color-bg);">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-block text-gold font-semibold text-sm uppercase tracking-wider mb-4">Zespół</span>
-        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6">
+        <span class="inline-block font-semibold text-sm uppercase tracking-wider mb-4" style="color: var(--color-accent);">Zespół</span>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style="color: var(--color-text);">
           Nasi eksperci
         </h2>
-        <p class="text-gray-600 text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed" style="color: var(--color-text-muted);">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Profesjonalny zespół z wieloletnim doświadczeniem.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <!-- Team Member 1 -->
-        <div class="bg-gray-50 rounded-lg p-8">
-          <div class="w-24 h-24 bg-gray-300 rounded-full mb-6"></div>
-          <h3 class="font-heading text-xl font-bold text-black mb-2">Jan Kowalski</h3>
-          <p class="text-gold font-medium mb-4">Radca Prawny, Partner</p>
-          <p class="text-gray-600 leading-relaxed">
+        <div class="rounded-lg p-8" style="background-color: var(--color-bg-subtle);">
+          <div class="w-24 h-24 rounded-full mb-6" style="background-color: var(--color-text-muted); opacity: 0.3;"></div>
+          <h3 class="font-heading text-xl font-bold mb-2" style="color: var(--color-text);">Jan Kowalski</h3>
+          <p class="font-medium mb-4" style="color: var(--color-accent);">Radca Prawny, Partner</p>
+          <p class="leading-relaxed" style="color: var(--color-text-muted);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
           </p>
         </div>
 
         <!-- Team Member 2 -->
-        <div class="bg-gray-50 rounded-lg p-8">
-          <div class="w-24 h-24 bg-gray-300 rounded-full mb-6"></div>
-          <h3 class="font-heading text-xl font-bold text-black mb-2">Anna Nowak</h3>
-          <p class="text-gold font-medium mb-4">Doradca Restrukturyzacyjny</p>
-          <p class="text-gray-600 leading-relaxed">
+        <div class="rounded-lg p-8" style="background-color: var(--color-bg-subtle);">
+          <div class="w-24 h-24 rounded-full mb-6" style="background-color: var(--color-text-muted); opacity: 0.3;"></div>
+          <h3 class="font-heading text-xl font-bold mb-2" style="color: var(--color-text);">Anna Nowak</h3>
+          <p class="font-medium mb-4" style="color: var(--color-accent);">Doradca Restrukturyzacyjny</p>
+          <p class="leading-relaxed" style="color: var(--color-text-muted);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
           </p>
         </div>
@@ -57,51 +53,51 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Values Section -->
-  <section class="py-20 sm:py-28 bg-beige">
+  <section class="py-20 sm:py-28" style="background-color: var(--color-bg-subtle);">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-block text-gold font-semibold text-sm uppercase tracking-wider mb-4">Nasze wartości</span>
-        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6">
+        <span class="inline-block font-semibold text-sm uppercase tracking-wider mb-4" style="color: var(--color-accent);">Nasze wartości</span>
+        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style="color: var(--color-text);">
           Czym się kierujemy
         </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Value 1 -->
-        <div class="bg-white rounded-lg p-8 text-center">
-          <div class="w-16 h-16 bg-gold rounded-md flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="rounded-lg p-8 text-center" style="background-color: var(--color-bg);">
+          <div class="w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-6" style="background-color: var(--color-accent);">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3 class="font-heading text-xl font-bold text-black mb-4">Transparentność</h3>
-          <p class="text-gray-600 leading-relaxed">
+          <h3 class="font-heading text-xl font-bold mb-4" style="color: var(--color-text);">Transparentność</h3>
+          <p class="leading-relaxed" style="color: var(--color-text-muted);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
           </p>
         </div>
 
         <!-- Value 2 -->
-        <div class="bg-white rounded-lg p-8 text-center">
-          <div class="w-16 h-16 bg-gold rounded-md flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="rounded-lg p-8 text-center" style="background-color: var(--color-bg);">
+          <div class="w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-6" style="background-color: var(--color-accent);">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <h3 class="font-heading text-xl font-bold text-black mb-4">Partnerstwo</h3>
-          <p class="text-gray-600 leading-relaxed">
+          <h3 class="font-heading text-xl font-bold mb-4" style="color: var(--color-text);">Partnerstwo</h3>
+          <p class="leading-relaxed" style="color: var(--color-text-muted);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
           </p>
         </div>
 
         <!-- Value 3 -->
-        <div class="bg-white rounded-lg p-8 text-center">
-          <div class="w-16 h-16 bg-gold rounded-md flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="rounded-lg p-8 text-center" style="background-color: var(--color-bg);">
+          <div class="w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-6" style="background-color: var(--color-accent);">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="font-heading text-xl font-bold text-black mb-4">Skuteczność</h3>
-          <p class="text-gray-600 leading-relaxed">
+          <h3 class="font-heading text-xl font-bold mb-4" style="color: var(--color-text);">Skuteczność</h3>
+          <p class="leading-relaxed" style="color: var(--color-text-muted);">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
           </p>
         </div>
@@ -109,5 +105,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-</Layout>
+  <CTASection variant="dark" />
 
+</Layout>

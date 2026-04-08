@@ -1,0 +1,35 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+}
+
+const { variant = 'dark' } = Astro.props;
+const isDark = variant === 'dark';
+---
+
+<section class="py-20 sm:py-28" style={isDark ? 'background-color: var(--color-primary);' : 'background-color: var(--color-bg-subtle);'}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2
+        class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
+        style={isDark ? 'color: var(--color-bg);' : 'color: var(--color-text);'}
+      >
+        Nie wiesz od czego zacząć?
+      </h2>
+      <p
+        class="text-lg leading-relaxed mb-10"
+        style={isDark ? 'color: rgba(255,255,255,0.7);' : 'color: var(--color-text-muted);'}
+      >
+        Umów się na bezpłatną 15-minutową konsultację. Przeanalizujemy Twoją sytuację i zaproponujemy najlepsze rozwiązanie.
+      </p>
+      <a
+        href="/kontakt#formularz"
+        class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold text-base transition-all duration-300 hover:scale-105 hover:brightness-110"
+        style="background-color: var(--color-accent); color: var(--color-text);"
+      >
+        Umów bezpłatną konsultację
+      </a>
+    </div>
+  </div>
+</section>
+

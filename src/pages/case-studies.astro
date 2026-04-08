@@ -1,90 +1,63 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+import { getCaseStudies } from '../lib/sanity';
+
+const caseStudies = await getCaseStudies();
 ---
 
 <Layout title="Case Studies — Solviro Legal" description="Poznaj nasze realizacje. Zobacz, jak pomogliśmy firmom w procesach restrukturyzacji i upadłości.">
   
-  <!-- Hero Section -->
-  <section class="pt-32 pb-20 bg-beige">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="inline-block text-gold font-semibold text-sm uppercase tracking-wider mb-4">Case Studies</span>
-        <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-black leading-tight mb-6">
-          Nasze realizacje
-        </h1>
-        <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    title="Nasze realizacje"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    breadcrumb={[
+      { label: 'Strona główna', href: '/' },
+      { label: 'Case Studies', href: '/case-studies' }
+    ]}
+  />
 
   <!-- Case Studies Grid -->
-  <section class="py-20 sm:py-28 bg-white">
+  <section class="py-20 sm:py-28" style="background-color: var(--color-bg);">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Case Study Card 1 -->
-        <article class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
-          <div class="h-48 bg-gray-200"></div>
-          <div class="p-8">
-            <span class="inline-block bg-gold/10 text-gold text-sm font-medium px-3 py-1 rounded-full mb-4">Branża produkcyjna</span>
-            <h2 class="font-heading text-xl font-bold text-black mb-3">
-              Lorem Ipsum Dolor Sit Amet Consectetur
-            </h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="flex items-center justify-between pt-6 border-t border-gray-200">
-              <span class="text-sm text-gray-500">Redukcja długu o 65%</span>
-              <a href="/case-studies/lorem-ipsum" class="text-gold font-semibold text-sm hover:underline">
-                Czytaj więcej
-              </a>
+        {caseStudies.map((caseStudy) => (
+          <article class="rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300" style="background-color: var(--color-bg-subtle);">
+            <div class="h-48" style="background-color: var(--color-text-muted); opacity: 0.2;"></div>
+            <div class="p-8">
+              <span
+                class="inline-block text-sm font-medium px-3 py-1 rounded-full mb-4"
+                style="background-color: var(--color-accent); color: var(--color-text);"
+              >
+                {caseStudy.industry}
+              </span>
+              <h2 class="font-heading text-xl font-bold mb-3" style="color: var(--color-text);">
+                {caseStudy.title}
+              </h2>
+              <p class="text-sm leading-relaxed mb-6 line-clamp-3" style="color: var(--color-text-muted);">
+                {caseStudy.challenge.substring(0, 150)}...
+              </p>
+              <div class="flex items-center justify-between pt-6 border-t" style="border-color: var(--color-text-muted);">
+                <span class="text-sm font-medium" style="color: var(--color-accent);">{caseStudy.result}</span>
+                <a
+                  href={`/case-studies/${caseStudy.slug}`}
+                  class="inline-flex items-center gap-1 font-semibold text-sm transition-all duration-300 hover:gap-2"
+                  style="color: var(--color-text);"
+                >
+                  Czytaj więcej
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Case Study Card 2 -->
-        <article class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
-          <div class="h-48 bg-gray-300"></div>
-          <div class="p-8">
-            <span class="inline-block bg-gold/10 text-gold text-sm font-medium px-3 py-1 rounded-full mb-4">Branża budowlana</span>
-            <h2 class="font-heading text-xl font-bold text-black mb-3">
-              Adipiscing Elit Sed Do Eiusmod Tempor
-            </h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="flex items-center justify-between pt-6 border-t border-gray-200">
-              <span class="text-sm text-gray-500">Układ zatwierdzony</span>
-              <a href="/case-studies/adipiscing" class="text-gold font-semibold text-sm hover:underline">
-                Czytaj więcej
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Case Study Card 3 -->
-        <article class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
-          <div class="h-48 bg-gray-400"></div>
-          <div class="p-8">
-            <span class="inline-block bg-gold/10 text-gold text-sm font-medium px-3 py-1 rounded-full mb-4">Handel detaliczny</span>
-            <h2 class="font-heading text-xl font-bold text-black mb-3">
-              Incididunt Ut Labore Et Dolore Magna
-            </h2>
-            <p class="text-gray-600 text-sm leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <div class="flex items-center justify-between pt-6 border-t border-gray-200">
-              <span class="text-sm text-gray-500">Firma uratowana</span>
-              <a href="/case-studies/incididunt" class="text-gold font-semibold text-sm hover:underline">
-                Czytaj więcej
-              </a>
-            </div>
-          </div>
-        </article>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-</Layout>
+  <CTASection variant="dark" />
 
+</Layout>

@@ -17,8 +17,8 @@ const navLinks = [
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <span class="font-heading text-2xl font-bold text-black header-scrolled:text-black transition-colors duration-300">
-          Solviro<span class="text-gold">.</span>
+        <span class="font-heading text-2xl font-bold transition-colors duration-300" style="color: var(--color-text);">
+          Solviro<span style="color: var(--color-accent);">.</span>
         </span>
       </a>
 
@@ -27,17 +27,19 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="text-sm font-medium text-gray-700 hover:text-gold transition-colors duration-300"
+            class="text-sm font-medium transition-colors duration-300 hover:opacity-80"
+            style="color: var(--color-text-muted);"
           >
             {link.label}
           </a>
         ))}
       </nav>
 
-      <!-- CTA Button -->
+      <!-- CTA Button - More prominent -->
       <a
-        href="#formularz"
-        class="hidden lg:inline-flex items-center justify-center px-6 py-3 rounded-md border-2 border-black text-black font-semibold text-sm hover:bg-gold hover:border-gold transition-all duration-300"
+        href="/kontakt#formularz"
+        class="hidden lg:inline-flex items-center justify-center px-7 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 hover:scale-105 hover:brightness-110"
+        style="background-color: var(--color-accent); color: var(--color-text);"
       >
         Umów wizytę
       </a>
@@ -46,7 +48,8 @@ const navLinks = [
       <button
         id="mobile-menu-button"
         type="button"
-        class="lg:hidden p-2 text-black transition-colors duration-300"
+        class="lg:hidden p-2 transition-colors duration-300"
+        style="color: var(--color-text);"
         aria-label="Otwórz menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,19 +60,21 @@ const navLinks = [
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100">
+  <div id="mobile-menu" class="hidden lg:hidden" style="background-color: var(--color-bg); border-top: 1px solid var(--color-text-muted); border-opacity: 0.2;">
     <div class="container mx-auto px-4 py-4 space-y-3">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="block py-2 text-gray-700 hover:text-gold font-medium transition-colors duration-300"
+          class="block py-2 font-medium transition-colors duration-300"
+          style="color: var(--color-text-muted);"
         >
           {link.label}
         </a>
       ))}
       <a
-        href="#formularz"
-        class="block w-full text-center py-3 rounded-md border-2 border-black text-black font-semibold hover:bg-gold hover:border-gold transition-all duration-300 mt-4"
+        href="/kontakt#formularz"
+        class="block w-full text-center py-3.5 rounded-md font-semibold transition-all duration-300 mt-4"
+        style="background-color: var(--color-accent); color: var(--color-text);"
       >
         Umów wizytę
       </a>
@@ -92,5 +97,12 @@ const navLinks = [
     backdrop-filter: blur(12px);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   }
-</style>
 
+  [data-theme="forest"] #main-header.scrolled {
+    background-color: rgba(248, 250, 248, 0.95);
+  }
+
+  [data-theme="slate"] #main-header.scrolled {
+    background-color: rgba(248, 249, 251, 0.95);
+  }
+</style>

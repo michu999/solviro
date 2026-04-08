@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import MobileBottomCTA from '../components/MobileBottomCTA.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -14,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="warm">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -56,12 +57,21 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
       }
     </script>
   </head>
-  <body class="font-body text-black bg-white antialiased">
+  <body class="font-body antialiased" style="color: var(--color-text); background-color: var(--color-bg);">
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+    <MobileBottomCTA />
+
+    <!-- Theme Switcher (dev only) -->
+      <div id="theme-switcher" class="theme-switcher">
+    <button data-theme="warm">Warm</button>
+    <button data-theme="forest">Forest</button>
+    <button data-theme="slate">Slate</button>
+    <button data-theme="brand">Brand</button>
+  </div>
 
     <script>
       const header = document.getElementById('main-header');
@@ -76,6 +86,30 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 
       window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
+
+      // Theme switcher (only visible with ?preview=1)
+      const themeSwitcher = document.getElementById('theme-switcher');
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      if (urlParams.get('preview') === '1' && themeSwitcher) {
+        themeSwitcher.classList.add('visible');
+        
+        const buttons = themeSwitcher.querySelectorAll('button');
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'warm';
+        
+        buttons.forEach(btn => {
+          if (btn.getAttribute('data-theme') === currentTheme) {
+            btn.classList.add('active');
+          }
+          
+          btn.addEventListener('click', () => {
+            const theme = btn.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', theme || 'warm');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          });
+        });
+      }
     </script>
   </body>
 </html>

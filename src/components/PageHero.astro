@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  breadcrumb: { label: string; href: string }[];
+}
+
+const { title, description, breadcrumb } = Astro.props;
+---
+
+<section class="relative min-h-[280px] flex items-end pt-32 pb-12 sm:pb-16" style="background-color: var(--color-bg-subtle);">
+  <!-- Decorative accent line -->
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl lg:pl-8">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm mb-4" style="color: var(--color-text-muted);">
+        {breadcrumb.map((item, index) => (
+          <>
+            {index > 0 && <span>/</span>}
+            {index === breadcrumb.length - 1 ? (
+              <span style="color: var(--color-text);">{item.label}</span>
+            ) : (
+              <a href={item.href} class="hover:underline transition-colors duration-200">{item.label}</a>
+            )}
+          </>
+        ))}
+      </nav>
+
+      <!-- Headline -->
+      <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4" style="color: var(--color-text);">
+        {title}
+      </h1>
+
+      <!-- Description -->
+      <p class="text-lg sm:text-xl leading-relaxed max-w-2xl" style="color: var(--color-text-muted);">
+        {description}
+      </p>
+    </div>
+  </div>
+
+  <!-- Decorative geometric element -->
+  <div class="absolute right-0 bottom-0 w-32 h-32 opacity-10 hidden md:block">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="2" style="color: var(--color-accent);" />
+      <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="2" style="color: var(--color-accent);" />
+      <circle cx="50" cy="50" r="15" stroke="currentColor" stroke-width="2" style="color: var(--color-accent);" />
+    </svg>
+  </div>
+</section>
+

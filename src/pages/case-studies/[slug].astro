@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getCaseStudy, getCaseStudySlugs, type CaseStudy } from '../../lib/sanity';
+
+export async function getStaticPaths() {
+  const slugs = await getCaseStudySlugs();
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const caseStudy = await getCaseStudy(slug as string);
+
+if (!caseStudy) {
+  return Astro.redirect('/case-studies');
+}
+---
+
+<Layout title={`${caseStudy.title} — Solviro Legal`} description={caseStudy.challenge.substring(0, 155)}>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[320px] flex items-end pt-32 pb-12 sm:pb-16" style="background-color: var(--color-bg-subtle);">
+    <!-- Decorative accent line -->
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 hidden lg:block" style="background-color: var(--color-accent); margin-left: max(2rem, calc((100vw - 1280px) / 2));"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl lg:pl-8">
+        <!-- Back link -->
+        <a
+          href="/case-studies"
+          class="inline-flex items-center gap-2 text-sm font-medium mb-6 transition-all duration-300 hover:gap-3"
+          style="color: var(--color-text-muted);"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          </svg>
+          Wróć do Case Studies
+        </a>
+
+        <!-- Industry badge -->
+        <span
+          class="inline-block text-sm font-medium px-4 py-2 rounded-full mb-6"
+          style="background-color: var(--color-accent); color: var(--color-text);"
+        >
+          {caseStudy.industry}
+        </span>
+
+        <!-- Headline -->
+        <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6" style="color: var(--color-text);">
+          {caseStudy.title}
+        </h1>
+
+        <!-- Result highlight -->
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-medium uppercase tracking-wider" style="color: var(--color-text-muted);">Rezultat:</span>
+          <span class="font-heading text-xl font-bold" style="color: var(--color-accent);">{caseStudy.result}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-20 sm:py-28" style="background-color: var(--color-bg);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          <!-- Main Content -->
+          <div class="lg:col-span-2 space-y-12">
+            <!-- Challenge -->
+            <div>
+              <h2 class="font-heading text-2xl font-bold mb-6" style="color: var(--color-text);">
+                Wyzwanie
+              </h2>
+              <p class="leading-relaxed" style="color: var(--color-text-muted);">
+                {caseStudy.challenge}
+              </p>
+            </div>
+
+            <!-- Solution -->
+            <div>
+              <h2 class="font-heading text-2xl font-bold mb-6" style="color: var(--color-text);">
+                Rozwiązanie
+              </h2>
+              <p class="leading-relaxed" style="color: var(--color-text-muted);">
+                {caseStudy.solution}
+              </p>
+            </div>
+
+            <!-- Result -->
+            <div class="p-8 rounded-lg" style="background-color: var(--color-bg-subtle);">
+              <h2 class="font-heading text-2xl font-bold mb-4" style="color: var(--color-text);">
+                Rezultat
+              </h2>
+              <p class="font-heading text-3xl font-bold" style="color: var(--color-accent);">
+                {caseStudy.result}
+              </p>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-28 p-8 rounded-lg" style="background-color: var(--color-bg-subtle);">
+              <h3 class="font-heading text-lg font-bold mb-6" style="color: var(--color-text);">
+                Szczegóły projektu
+              </h3>
+              <dl class="space-y-4">
+                <div>
+                  <dt class="text-sm font-medium uppercase tracking-wider mb-1" style="color: var(--color-text-muted);">Branża</dt>
+                  <dd class="font-semibold" style="color: var(--color-text);">{caseStudy.industry}</dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium uppercase tracking-wider mb-1" style="color: var(--color-text-muted);">Data publikacji</dt>
+                  <dd class="font-semibold" style="color: var(--color-text);">
+                    {new Date(caseStudy.publishedAt).toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium uppercase tracking-wider mb-1" style="color: var(--color-text-muted);">Rezultat</dt>
+                  <dd class="font-semibold" style="color: var(--color-accent);">{caseStudy.result}</dd>
+                </div>
+              </dl>
+
+              <hr class="my-8" style="border-color: var(--color-text-muted); opacity: 0.2;" />
+
+              <a
+                href="/kontakt#formularz"
+                class="block w-full text-center px-6 py-4 rounded-md font-semibold transition-all duration-300 hover:scale-105 hover:brightness-110"
+                style="background-color: var(--color-accent); color: var(--color-text);"
+              >
+                Umów konsultację
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection variant="dark" />
+
+</Layout>
+

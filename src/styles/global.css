@@ -1,8 +1,79 @@
 @import "tailwindcss";
 
+/* Theme Variables */
+:root,
+[data-theme="warm"] {
+  --color-primary: #1a1a1a;
+  --color-accent: #C9B037;
+  --color-accent-light: #d4be4f;
+  --color-accent-dark: #b59d2f;
+  --color-bg: #ffffff;
+  --color-bg-subtle: #F5F5DC;
+  --color-text: #1a1a1a;
+  --color-text-muted: #A9A9A9;
+
+  /* Brand palette */
+  --color-sand:      #F8F3E9;  /* najjaśniejszy — tła sekcji, karty */
+  --color-gold-warm: #A78B50;  /* ciepły złoty — alternatywa dla accent */
+  --color-brown:     #5D4116;  /* głęboki brąz — nagłówki, mocne akcenty */
+  --color-teal:      #00A99D;  /* zimny kontrast — CTA, badges, highlights */
+}
+
+[data-theme="forest"] {
+  --color-primary: #1a3a2a;
+  --color-accent: #4a9e6b;
+  --color-accent-light: #5cb67d;
+  --color-accent-dark: #3d8759;
+  --color-bg: #f8faf8;
+  --color-bg-subtle: #e8f2ec;
+  --color-text: #1a3a2a;
+  --color-text-muted: #6b8f78;
+
+  /* Brand palette */
+  --color-sand:      #f0f5f1;
+  --color-gold-warm: #7a9e6b;
+  --color-brown:     #2d5a3a;
+  --color-teal:      #00A99D;
+}
+
+[data-theme="slate"] {
+  --color-primary: #1e2a3a;
+  --color-accent: #4a7ab5;
+  --color-accent-light: #5b8cc7;
+  --color-accent-dark: #3d689a;
+  --color-bg: #f8f9fb;
+  --color-bg-subtle: #e8edf4;
+  --color-text: #1e2a3a;
+  --color-text-muted: #7a8fa6;
+
+  /* Brand palette */
+  --color-sand:      #f0f3f7;
+  --color-gold-warm: #7a8fb5;
+  --color-brown:     #1e3a5a;
+  --color-teal:      #00A99D;
+}
+
+[data-theme="brand"] {
+  --color-primary:      #5D4116;
+--color-accent:       #A78B50;
+--color-accent-light: #b89660;
+--color-accent-dark:  #8a7040;
+--color-teal:         #00A99D;
+  --color-bg:           #F8F3E9;
+  --color-bg-subtle:    #EFE1CE;
+  --color-text:         #5D4116;
+  --color-text-muted:   #A78B50;
+
+  /* Brand palette */
+  --color-sand:      #F8F3E9;
+  --color-gold-warm: #A78B50;
+  --color-brown:     #5D4116;
+  --color-teal:      #00A99D;
+}
+
 @theme {
-  /* Colors - Warm neutral palette */
-  --color-black: #1a1a1a;
+  /* Colors - mapped to CSS variables */
+  --color-black: var(--color-text);
   --color-gray-50: #fafaf9;
   --color-gray-100: #f5f5f4;
   --color-gray-200: #e7e5e4;
@@ -14,12 +85,18 @@
   --color-gray-800: #292524;
   --color-gray-900: #1c1917;
 
-  --color-gold: #C9B037;
-  --color-gold-light: #d4be4f;
-  --color-gold-dark: #b59d2f;
+  --color-gold: var(--color-accent);
+  --color-gold-light: var(--color-accent-light);
+  --color-gold-dark: var(--color-accent-dark);
 
-  --color-beige: #F5F5DC;
-  --color-warm-gray: #A9A9A9;
+  --color-beige: var(--color-bg-subtle);
+  --color-warm-gray: var(--color-text-muted);
+
+  /* New brand tokens */
+  --color-sand: var(--color-sand);
+  --color-gold-warm: var(--color-gold-warm);
+  --color-brown: var(--color-brown);
+  --color-teal: var(--color-teal);
 
   /* Typography */
   --font-heading: 'DM Sans', sans-serif;
@@ -33,7 +110,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--color-black);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 .font-heading {
@@ -47,13 +125,52 @@ body {
 /* Button hover states */
 .btn-primary {
   background-color: transparent;
-  border: 2px solid var(--color-black);
-  color: var(--color-black);
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-black);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+/* Theme switcher - dev only */
+.theme-switcher {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: none;
+  gap: 4px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 10px;
+}
+
+.theme-switcher.visible {
+  display: flex;
+}
+
+.theme-switcher button {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.2s;
+}
+
+.theme-switcher button:hover {
+  background: #f0f0f0;
+}
+
+.theme-switcher button.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text);
 }
