@@ -38,8 +38,7 @@ const navLinks = [
       <!-- CTA Button - More prominent -->
       <a
         href="/kontakt#formularz"
-        class="hidden lg:inline-flex items-center justify-center px-7 py-3.5 rounded-md font-semibold text-sm transition-all duration-300 hover:scale-105 hover:brightness-110"
-        style="background-color: var(--color-accent); color: var(--color-text);"
+        class="hidden lg:inline-flex items-center justify-center cta-button"
       >
         Umów wizytę
       </a>
@@ -73,8 +72,7 @@ const navLinks = [
       ))}
       <a
         href="/kontakt#formularz"
-        class="block w-full text-center py-3.5 rounded-md font-semibold transition-all duration-300 mt-4"
-        style="background-color: var(--color-accent); color: var(--color-text);"
+        class="block w-full text-center cta-button mt-4"
       >
         Umów wizytę
       </a>
@@ -93,16 +91,8 @@ const navLinks = [
 
 <style>
   #main-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: color-mix(in srgb, var(--color-bg) 95%, transparent);
     backdrop-filter: blur(12px);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  }
-
-  [data-theme="forest"] #main-header.scrolled {
-    background-color: rgba(248, 250, 248, 0.95);
-  }
-
-  [data-theme="slate"] #main-header.scrolled {
-    background-color: rgba(248, 249, 251, 0.95);
   }
 </style>

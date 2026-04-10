@@ -1,89 +1,179 @@
 @import "tailwindcss";
 
-/* Theme Variables */
+/* =========================
+   BASE THEME (WARM DEFAULT)
+========================= */
 :root,
 [data-theme="warm"] {
-  --color-primary: #1a1a1a;
-  --color-accent: #C9B037;
-  --color-accent-light: #d4be4f;
-  --color-accent-dark: #b59d2f;
-  --color-bg: #ffffff;
-  --color-bg-subtle: #F5F5DC;
-  --color-text: #1a1a1a;
-  --color-text-muted: #A9A9A9;
+  --color-primary: #2b2b2b;
+  --color-accent: #c6a756;
+  --color-accent-light: #d8bc6a;
+  --color-accent-dark: #a88c3e;
 
-  /* Brand palette */
-  --color-sand:      #F8F3E9;  /* najjaśniejszy — tła sekcji, karty */
-  --color-gold-warm: #A78B50;  /* ciepły złoty — alternatywa dla accent */
-  --color-brown:     #5D4116;  /* głęboki brąz — nagłówki, mocne akcenty */
-  --color-teal:      #00A99D;  /* zimny kontrast — CTA, badges, highlights */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f7f1e5;
+
+  --color-text: #2b2b2b;
+  --color-text-muted: #8a8a8a;
+
+  /* Brand */
+  --color-sand: #f8f3e9;
+  --color-gold-warm: #c6a756;
+  --color-brown: #5a3f1b;
+  --color-teal: #00a99d;
+
+  /* CTA specific */
+  --color-cta-bg: #c6a756;
+  --color-cta-text: #1a1a1a;
+  --color-cta-hover: #d8bc6a;
 }
 
-[data-theme="forest"] {
-  --color-primary: #1a3a2a;
-  --color-accent: #4a9e6b;
-  --color-accent-light: #5cb67d;
-  --color-accent-dark: #3d8759;
-  --color-bg: #f8faf8;
-  --color-bg-subtle: #e8f2ec;
-  --color-text: #1a3a2a;
-  --color-text-muted: #6b8f78;
+/* =========================
+   NEW THEMES (PREMIUM)
+========================= */
 
-  /* Brand palette */
-  --color-sand:      #f0f5f1;
-  --color-gold-warm: #7a9e6b;
-  --color-brown:     #2d5a3a;
-  --color-teal:      #00A99D;
+[data-theme="coffee"] {
+  --color-primary: #1c1410;
+  --color-accent: #ff7f3f;
+  --color-accent-light: #ff9560;
+  --color-accent-dark: #e06428;
+
+  --color-bg: #fefdfb;
+  --color-bg-subtle: #f8f3ee;
+
+  --color-text: #1c1410;
+  --color-text-muted: #6b5a4d;
+
+  --color-sand: #f9f4ef;
+  --color-gold-warm: #ff7f3f;
+  --color-brown: #2d1f15;
+  --color-teal: #00a99d;
+
+  --color-cta-bg: #ff7f3f;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #ff9560;
+}
+
+[data-theme="sunset"] {
+  --color-primary: #1a0f0f;
+  --color-accent: #ff4d4d;
+  --color-accent-light: #ff6b6b;
+  --color-accent-dark: #e63939;
+
+  --color-bg: #fffbfa;
+  --color-bg-subtle: #fdf0ed;
+
+  --color-text: #1a0f0f;
+  --color-text-muted: #7a524a;
+
+  --color-sand: #fff5f2;
+  --color-gold-warm: #ff8066;
+  --color-brown: #3a1c1c;
+  --color-teal: #2a9d8f;
+
+  --color-cta-bg: #ff4d4d;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #ff6b6b;
+}
+
+[data-theme="luxury"] {
+  --color-primary: #0a0a0a;
+  --color-accent: #ffc107;
+  --color-accent-light: #ffd54f;
+  --color-accent-dark: #e6ac00;
+
+  --color-bg: #0d0d0d;
+  --color-bg-subtle: #1a1a1a;
+
+  --color-text: #fafafa;
+  --color-text-muted: #9a9a9a;
+
+  --color-sand: #1a1a1a;
+  --color-gold-warm: #ffc107;
+  --color-brown: #262626;
+  --color-teal: #00e5d4;
+
+  --color-cta-bg: #ffc107;
+  --color-cta-text: #0a0a0a;
+  --color-cta-hover: #ffd54f;
+}
+
+[data-theme="olive"] {
+  --color-primary: #1a2216;
+  --color-accent: #7cb342;
+  --color-accent-light: #9ccc65;
+  --color-accent-dark: #689f38;
+
+  --color-bg: #fbfcf9;
+  --color-bg-subtle: #f0f4e8;
+
+  --color-text: #1a2216;
+  --color-text-muted: #5a6852;
+
+  --color-sand: #f4f7ef;
+  --color-gold-warm: #9ccc65;
+  --color-brown: #2a3322;
+  --color-teal: #00a99d;
+
+  --color-cta-bg: #7cb342;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #9ccc65;
+}
+
+/* =========================
+   EXISTING (tweaked)
+========================= */
+
+[data-theme="forest"] {
+  --color-primary: #0d1f14;
+  --color-accent: #00c853;
+  --color-accent-light: #5efc82;
+  --color-accent-dark: #00a344;
+
+  --color-bg: #f9fcfa;
+  --color-bg-subtle: #e8f5ec;
+
+  --color-text: #0d1f14;
+  --color-text-muted: #4a6b55;
+
+  --color-sand: #f0f7f2;
+  --color-gold-warm: #5efc82;
+  --color-brown: #153d22;
+  --color-teal: #00a99d;
+
+  --color-cta-bg: #00c853;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #5efc82;
 }
 
 [data-theme="slate"] {
-  --color-primary: #1e2a3a;
-  --color-accent: #4a7ab5;
-  --color-accent-light: #5b8cc7;
-  --color-accent-dark: #3d689a;
-  --color-bg: #f8f9fb;
-  --color-bg-subtle: #e8edf4;
-  --color-text: #1e2a3a;
-  --color-text-muted: #7a8fa6;
+  --color-primary: #0f172a;
+  --color-accent: #3b82f6;
+  --color-accent-light: #60a5fa;
+  --color-accent-dark: #2563eb;
 
-  /* Brand palette */
-  --color-sand:      #f0f3f7;
-  --color-gold-warm: #7a8fb5;
-  --color-brown:     #1e3a5a;
-  --color-teal:      #00A99D;
+  --color-bg: #f8fafc;
+  --color-bg-subtle: #e2e8f0;
+
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+
+  --color-sand: #f1f5f9;
+  --color-gold-warm: #60a5fa;
+  --color-brown: #1e293b;
+  --color-teal: #00a99d;
+
+  --color-cta-bg: #3b82f6;
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #60a5fa;
 }
 
-[data-theme="brand"] {
-  --color-primary:      #5D4116;
---color-accent:       #A78B50;
---color-accent-light: #b89660;
---color-accent-dark:  #8a7040;
---color-teal:         #00A99D;
-  --color-bg:           #F8F3E9;
-  --color-bg-subtle:    #EFE1CE;
-  --color-text:         #5D4116;
-  --color-text-muted:   #A78B50;
-
-  /* Brand palette */
-  --color-sand:      #F8F3E9;
-  --color-gold-warm: #A78B50;
-  --color-brown:     #5D4116;
-  --color-teal:      #00A99D;
-}
+/* =========================
+   THEME TOKENS
+========================= */
 
 @theme {
-  /* Colors - mapped to CSS variables */
   --color-black: var(--color-text);
-  --color-gray-50: #fafaf9;
-  --color-gray-100: #f5f5f4;
-  --color-gray-200: #e7e5e4;
-  --color-gray-300: #d6d3d1;
-  --color-gray-400: #a8a29e;
-  --color-gray-500: #78716c;
-  --color-gray-600: #57534e;
-  --color-gray-700: #44403c;
-  --color-gray-800: #292524;
-  --color-gray-900: #1c1917;
 
   --color-gold: var(--color-accent);
   --color-gold-light: var(--color-accent-light);
@@ -92,63 +182,111 @@
   --color-beige: var(--color-bg-subtle);
   --color-warm-gray: var(--color-text-muted);
 
-  /* New brand tokens */
   --color-sand: var(--color-sand);
   --color-gold-warm: var(--color-gold-warm);
   --color-brown: var(--color-brown);
   --color-teal: var(--color-teal);
 
-  /* Typography */
   --font-heading: 'DM Sans', sans-serif;
   --font-body: 'Source Sans 3', sans-serif;
 }
 
-/* Base styles */
-html {
-  scroll-behavior: smooth;
-}
+/* =========================
+   BASE STYLES
+========================= */
 
 body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-bg);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .font-heading {
   font-family: var(--font-heading);
 }
 
-.font-body {
-  font-family: var(--font-body);
-}
+/* =========================
+   BUTTON (UPGRADED)
+========================= */
 
-/* Button hover states */
 .btn-primary {
-  background-color: transparent;
-  border: 2px solid var(--color-text);
-  color: var(--color-text);
-  transition: all 0.3s ease;
+  background: var(--color-cta-bg);
+  border: 2px solid var(--color-cta-bg);
+  color: var(--color-cta-text);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.25s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-text);
+  background: var(--color-cta-hover);
+  border-color: var(--color-cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Theme switcher - dev only */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   CTA STYLES (HIGH EMPHASIS)
+========================= */
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-cta-bg);
+  color: var(--color-cta-text);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background: var(--color-cta-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   THEME SWITCHER (UI)
+========================= */
+
 .theme-switcher {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 20px;
+  right: 20px;
   z-index: 9999;
+
   display: none;
-  gap: 4px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-size: 10px;
+  gap: 6px;
+  padding: 10px;
+
+  background: var(--color-bg);
+  backdrop-filter: blur(10px);
+
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border: 1px solid var(--color-text-muted);
 }
 
 .theme-switcher.visible {
@@ -156,21 +294,24 @@ body {
 }
 
 .theme-switcher button {
-  padding: 4px 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 11px;
   cursor: pointer;
-  font-size: 10px;
-  transition: all 0.2s;
+
+  background: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+
+  transition: all 0.2s ease;
 }
 
 .theme-switcher button:hover {
-  background: #f0f0f0;
+  background: var(--color-accent);
+  color: var(--color-cta-text);
 }
 
 .theme-switcher button.active {
   background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-cta-text);
 }

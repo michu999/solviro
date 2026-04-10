@@ -19,15 +19,13 @@ import CTASection from '../components/CTASection.astro';
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/kontakt#formularz"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-md font-semibold text-base transition-all duration-300 hover:scale-105 hover:brightness-110"
-            style="background-color: var(--color-accent); color: var(--color-text);"
+            class="cta-button"
           >
             Umów bezpłatną konsultację
           </a>
           <a
             href="/o-nas"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-md border-2 font-semibold text-base transition-all duration-300 hover:opacity-80"
-            style="border-color: var(--color-text); color: var(--color-text);"
+            class="btn-secondary inline-flex items-center justify-center"
           >
             Poznaj nas
           </a>
@@ -59,8 +57,8 @@ import CTASection from '../components/CTASection.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         <!-- Step 1 -->
         <div class="relative p-8 lg:p-10 rounded-lg" style="background-color: var(--color-bg-subtle);">
-          <div class="w-16 h-16 rounded-md flex items-center justify-center mb-6" style="background-color: var(--color-accent);">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
+          <div class="w-16 h-16 rounded-md flex items-center justify-center mb-6" style="background-color: var(--color-cta-bg);">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
           </div>
@@ -73,8 +71,8 @@ import CTASection from '../components/CTASection.astro';
 
         <!-- Step 2 -->
         <div class="relative p-8 lg:p-10 rounded-lg" style="background-color: var(--color-bg-subtle);">
-          <div class="w-16 h-16 rounded-md flex items-center justify-center mb-6" style="background-color: var(--color-accent);">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
+          <div class="w-16 h-16 rounded-md flex items-center justify-center mb-6" style="background-color: var(--color-cta-bg);">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
             </svg>
           </div>
@@ -87,8 +85,8 @@ import CTASection from '../components/CTASection.astro';
 
         <!-- Step 3 -->
         <div class="relative p-8 lg:p-10 rounded-lg" style="background-color: var(--color-bg-subtle);">
-          <div class="w-16 h-16 rounded-md flex items-center justify-center mb-6" style="background-color: var(--color-accent);">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
+          <div class="w-16 h-16 rounded-md flex items-center justify-center mb-6" style="background-color: var(--color-cta-bg);">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
@@ -122,8 +120,8 @@ import CTASection from '../components/CTASection.astro';
         <!-- Restrukturyzacja Card -->
         <div class="group relative p-10 lg:p-12 rounded-lg border transition-colors duration-300" style="background-color: var(--color-bg); border-color: var(--color-text-muted);">
           <div class="relative z-10">
-            <div class="w-14 h-14 rounded-md flex items-center justify-center mb-8" style="background-color: var(--color-accent);">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
+            <div class="w-14 h-14 rounded-md flex items-center justify-center mb-8" style="background-color: var(--color-cta-bg);">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
@@ -167,8 +165,8 @@ import CTASection from '../components/CTASection.astro';
         <!-- Upadłość Card -->
         <div class="group relative p-10 lg:p-12 rounded-lg border transition-colors duration-300" style="background-color: var(--color-bg); border-color: var(--color-text-muted);">
           <div class="relative z-10">
-            <div class="w-14 h-14 rounded-md flex items-center justify-center mb-8" style="background-color: var(--color-accent);">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text);">
+            <div class="w-14 h-14 rounded-md flex items-center justify-center mb-8" style="background-color: var(--color-cta-bg);">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
               </svg>
             </div>
@@ -311,7 +309,7 @@ import CTASection from '../components/CTASection.astro';
         <!-- Left Column - Text -->
         <div>
           <span class="inline-block font-semibold text-sm uppercase tracking-wider mb-4" style="color: var(--color-accent);">Kontakt</span>
-          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style="color: var(--color-bg);">
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style="color: var(--color-accent);">
             Porozmawiajmy o Twojej sprawie
           </h2>
           <p class="text-lg leading-relaxed mb-10" style="color: rgba(255,255,255,0.7);">
@@ -327,7 +325,7 @@ import CTASection from '../components/CTASection.astro';
               </div>
               <div>
                 <p class="text-sm mb-1" style="color: rgba(255,255,255,0.5);">Zadzwoń do nas</p>
-                <a href="tel:+48123456789" class="font-semibold transition-colors duration-300" style="color: var(--color-bg);">
+                <a href="tel:+48123456789" class="font-semibold transition-colors duration-300" style="color: var(--color-accent);">
                   +48 123 456 789
                 </a>
               </div>
@@ -341,7 +339,7 @@ import CTASection from '../components/CTASection.astro';
               </div>
               <div>
                 <p class="text-sm mb-1" style="color: rgba(255,255,255,0.5);">Napisz do nas</p>
-                <a href="mailto:kontakt@solviro.pl" class="font-semibold transition-colors duration-300" style="color: var(--color-bg);">
+                <a href="mailto:kontakt@solviro.pl" class="font-semibold transition-colors duration-300" style="color: var(--color-accent);">
                   kontakt@solviro.pl
                 </a>
               </div>
@@ -356,7 +354,7 @@ import CTASection from '../components/CTASection.astro';
               </div>
               <div>
                 <p class="text-sm mb-1" style="color: rgba(255,255,255,0.5);">Odwiedź nas</p>
-                <p class="font-semibold" style="color: var(--color-bg);">
+                <p class="font-semibold" style="color: var(--color-accent);">
                   ul. Przykładowa 123, 00-001 Warszawa
                 </p>
               </div>
@@ -429,8 +427,7 @@ import CTASection from '../components/CTASection.astro';
 
             <button
               type="submit"
-              class="w-full px-8 py-4 rounded-md font-semibold text-base transition-all duration-300 hover:scale-105 hover:brightness-110"
-              style="background-color: var(--color-accent); color: var(--color-text);"
+              class="w-full cta-button"
             >
               Wyślij wiadomość
             </button>
