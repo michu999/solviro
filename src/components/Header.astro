@@ -1,29 +1,30 @@
 ---
 const navLinks = [
-  { href: '/', label: 'Strona główna' },
   { href: '/o-nas', label: 'O nas' },
   { href: '/restrukturyzacja', label: 'Restrukturyzacja' },
   { href: '/upadlosc', label: 'Upadłość' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
+
+const ctaText = "Umów wizytę";
 ---
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background-color: color-mix(in srgb, var(--color-bg) 95%, transparent); backdrop-filter: blur(12px);"
+  transition:persist
 >
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <span class="font-heading text-2xl font-bold transition-colors duration-300" style="color: var(--color-text);">
-          Solviro<span style="color: var(--color-accent);">.</span>
-        </span>
+        <img src="/logo/logo_solviro-01.svg" alt="Solviro Legal" class="h-10 w-auto" />
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center space-x-8">
+      <!-- Desktop Navigation - increased spacing -->
+      <nav class="hidden lg:flex items-center space-x-12">
         {navLinks.map((link) => (
           <a
             href={link.href}
@@ -35,12 +36,13 @@ const navLinks = [
         ))}
       </nav>
 
-      <!-- CTA Button - More prominent -->
+      <!-- CTA Button with Typewriter Effect - Desktop only (hidden below lg breakpoint) -->
       <a
         href="/kontakt#formularz"
-        class="hidden lg:inline-flex items-center justify-center cta-button"
+        class="!hidden lg:!inline-flex items-center justify-center cta-button cta-typewriter"
+        id="header-cta"
       >
-        Umów wizytę
+        <span class="cta-typewriter-text" id="cta-text">{ctaText}</span><span class="cta-cursor" id="cta-cursor">|</span>
       </a>
 
       <!-- Mobile Menu Button -->
@@ -70,12 +72,6 @@ const navLinks = [
           {link.label}
         </a>
       ))}
-      <a
-        href="/kontakt#formularz"
-        class="block w-full text-center cta-button mt-4"
-      >
-        Umów wizytę
-      </a>
     </div>
   </div>
 </header>
@@ -83,16 +79,79 @@ const navLinks = [
 <script>
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const ctaTextEl = document.getElementById('cta-text');
+  const ctaCursor = document.getElementById('cta-cursor');
+  
+  const fullText = "Umów wizytę";
+  let animationTimeout = null;
 
   mobileMenuButton?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
   });
+
+  // Typewriter animation - starts on page load, loops forever
+  function eraseText() {
+    if (!ctaTextEl) return;
+    
+    let currentText = ctaTextEl.textContent || '';
+    
+    if (currentText.length > 0) {
+      // Erase one letter (backspace effect)
+      ctaTextEl.textContent = currentText.slice(0, -1);
+      animationTimeout = setTimeout(eraseText, 140); // 140ms per backspace (wolniej)
+    } else {
+      // Text erased, wait a moment then start typing
+      animationTimeout = setTimeout(typeText, 600);
+    }
+  }
+
+  function typeText() {
+    if (!ctaTextEl) return;
+    
+    let currentText = ctaTextEl.textContent || '';
+    
+    if (currentText.length < fullText.length) {
+      // Type one letter
+      ctaTextEl.textContent = fullText.slice(0, currentText.length + 1);
+      animationTimeout = setTimeout(typeText, 120); // 120ms per letter (wolniej)
+    } else {
+      // Text fully typed, wait then start erasing
+      animationTimeout = setTimeout(eraseText, 3200); // Wait 3.2s before erasing
+    }
+  }
+
+  // Start animation after page loads with a small delay
+  setTimeout(() => {
+    if (ctaTextEl) {
+      ctaTextEl.textContent = fullText;
+      setTimeout(eraseText, 1800); // Wait 1.8s then start erasing
+    }
+  }, 500);
 </script>
 
 <style>
-  #main-header.scrolled {
-    background-color: color-mix(in srgb, var(--color-bg) 95%, transparent);
-    backdrop-filter: blur(12px);
+  #main-header {
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .cta-typewriter {
+    min-width: 165px;
+    justify-content: flex-start;
+  }
+
+  .cta-typewriter-text {
+    display: inline;
+  }
+
+  .cta-cursor {
+    display: inline-block;
+    font-weight: 400;
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 </style>

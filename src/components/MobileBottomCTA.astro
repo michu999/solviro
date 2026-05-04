@@ -1,18 +1,77 @@
 ---
 ---
 
-<div class="fixed bottom-0 left-0 right-0 z-40 md:hidden" style="background-color: var(--color-cta-bg);">
+<div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden" style="background-color: var(--color-cta-bg);" transition:persist>
   <a
     href="/kontakt#formularz"
-    class="flex items-center justify-center gap-2 w-full py-4 px-4 font-semibold text-sm transition-all duration-300"
-    style="color: var(--color-cta-text);"
+    class="flex items-center justify-center w-full py-4 px-4 font-semibold text-base transition-all duration-300 mobile-cta-typewriter"
+    style="color: var(--color-cta-text); min-height: 56px;"
   >
-    <span>Umów bezpłatną konsultację 15 min</span>
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
+    <span class="mobile-cta-text" id="mobile-cta-text">Umów wizytę</span><span class="mobile-cta-cursor" id="mobile-cta-cursor">|</span>
   </a>
 </div>
 
-<!-- Spacer to prevent content from being hidden behind the fixed CTA on mobile -->
-<div class="h-14 md:hidden"></div>
+<!-- Spacer to prevent content from being hidden behind the fixed CTA on mobile/tablet -->
+<div class="h-14 lg:hidden"></div>
+
+<script>
+  const mobileCtaTextEl = document.getElementById('mobile-cta-text');
+  const fullTextMobile = "Umów wizytę";
+  let mobileAnimationTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  function eraseMobileText() {
+    if (!mobileCtaTextEl) return;
+
+    let currentText = mobileCtaTextEl.textContent || '';
+
+    if (currentText.length > 0) {
+      mobileCtaTextEl.textContent = currentText.slice(0, -1);
+      mobileAnimationTimeout = setTimeout(eraseMobileText, 140);
+    } else {
+      mobileAnimationTimeout = setTimeout(typeMobileText, 600);
+    }
+  }
+
+  function typeMobileText() {
+    if (!mobileCtaTextEl) return;
+
+    let currentText = mobileCtaTextEl.textContent || '';
+
+    if (currentText.length < fullTextMobile.length) {
+      mobileCtaTextEl.textContent = fullTextMobile.slice(0, currentText.length + 1);
+      mobileAnimationTimeout = setTimeout(typeMobileText, 120);
+    } else {
+      mobileAnimationTimeout = setTimeout(eraseMobileText, 3200);
+    }
+  }
+
+  setTimeout(() => {
+    if (mobileCtaTextEl) {
+      mobileCtaTextEl.textContent = fullTextMobile;
+      setTimeout(eraseMobileText, 1800);
+    }
+  }, 500);
+</script>
+
+<style>
+  .mobile-cta-typewriter {
+    min-width: 165px;
+    justify-content: center;
+  }
+
+  .mobile-cta-text {
+    display: inline;
+  }
+
+  .mobile-cta-cursor {
+    display: inline-block;
+    font-weight: 400;
+    animation: mobileBlink 1s step-end infinite;
+    margin-left: 1px;
+  }
+
+  @keyframes mobileBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>

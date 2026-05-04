@@ -90,28 +90,25 @@ import CTASection from '../components/CTASection.astro';
         <!-- Right Column - Form -->
         <div class="p-8 lg:p-10 rounded-lg" style="background-color: var(--color-bg-subtle);">
           <h2 class="font-heading text-2xl font-bold mb-6" style="color: var(--color-text);">
-            Wyślij wiadomość
+            Jak możemy Ci pomóc?
           </h2>
+          
           <form id="contact-form" class="space-y-6">
-            <div>
-              <label for="name" class="block font-medium mb-2" style="color: var(--color-text);">
-                Imię i nazwisko <span style="color: var(--color-accent);">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300"
-                style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="Jan Kowalski"
-              />
+            <!-- Service Selector -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+              <button type="button" class="service-card" data-service="restrukturyzacja">
+                Restrukturyzacja
+              </button>
+              <button type="button" class="service-card" data-service="upadlosc">
+                Upadłość
+              </button>
+              <button type="button" class="service-card" data-service="inne">
+                Inne usługi
+              </button>
             </div>
+            <input type="hidden" name="service" id="service-input" value="" />
 
             <div>
-              <label for="email" class="block font-medium mb-2" style="color: var(--color-text);">
-                Adres e-mail <span style="color: var(--color-accent);">*</span>
-              </label>
               <input
                 type="email"
                 id="email"
@@ -119,14 +116,11 @@ import CTASection from '../components/CTASection.astro';
                 required
                 class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300"
                 style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="jan@example.com"
+                placeholder="Adres e-mail"
               />
             </div>
 
             <div>
-              <label for="phone" class="block font-medium mb-2" style="color: var(--color-text);">
-                Numer telefonu <span style="color: var(--color-accent);">*</span>
-              </label>
               <input
                 type="tel"
                 id="phone"
@@ -134,34 +128,19 @@ import CTASection from '../components/CTASection.astro';
                 required
                 class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300"
                 style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="+48 123 456 789"
+                placeholder="Numer telefonu"
               />
-            </div>
-
-            <div>
-              <label for="message" class="block font-medium mb-2" style="color: var(--color-text);">
-                Wiadomość <span style="color: var(--color-accent);">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300 resize-none"
-                style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="Opisz swoją sprawę..."
-              ></textarea>
             </div>
 
             <button
               type="submit"
               class="w-full cta-button"
             >
-              Wyślij wiadomość
+              Umów bezpłatną konsultację →
             </button>
 
             <p class="text-sm text-center" style="color: var(--color-text-muted);">
-              Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych.
+              Oddzwonimy w ciągu 24 godzin
             </p>
           </form>
         </div>
@@ -172,3 +151,36 @@ import CTASection from '../components/CTASection.astro';
   <CTASection variant="dark" />
 
 </Layout>
+
+<script>
+  const serviceCards = document.querySelectorAll('.service-card');
+  const serviceInput = document.getElementById('service-input') as HTMLInputElement;
+
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      serviceCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      if (serviceInput) {
+        serviceInput.value = card.getAttribute('data-service') || '';
+      }
+    });
+  });
+
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form as HTMLFormElement);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      alert('Dziękujemy! Skontaktujemy się wkrótce.');
+    } catch (err) {
+      alert('Wystąpił błąd. Spróbuj ponownie.');
+    }
+  });
+</script>

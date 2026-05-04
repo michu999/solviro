@@ -11,6 +11,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
-  integrations: [sitemap()]
+  integrations: [sitemap()],
+  exports: {
+    viewTransition: true,
+  },
 });
