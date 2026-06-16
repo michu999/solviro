@@ -11,8 +11,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [sitemap()],
-  exports: {
-    viewTransition: true,
-  },
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/oferta/')
+    })
+  ]
 });

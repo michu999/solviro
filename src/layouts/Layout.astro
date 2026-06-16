@@ -2,16 +2,25 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileBottomCTA from '../components/MobileBottomCTA.astro';
+import TimedCTA from '../components/TimedCTA.astro';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
+  ogImage?: string;
 }
 
-const { title, description = 'Solviro Legal — Kancelaria specjalizująca się w restrukturyzacjach i upadłościach' } = Astro.props;
+const { 
+  title, 
+  description = 'Solviro Legal — Kancelaria specjalizująca się w restrukturyzacjach i upadłościach', 
+  noindex = false,
+  ogImage = '/og-image.jpg'
+} = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://solviro.pl');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImageURL = new URL(ogImage, siteUrl);
 ---
 
 <!DOCTYPE html>
@@ -19,16 +28,20 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- Enable View Transitions -->
-    <meta name="view-transition" content="same-origin" />
+    <meta name="theme-color" content="#29292d" />
 
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
@@ -36,52 +49,71 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="Solviro Legal" />
 
-    <!-- Google Fonts - DM Sans + Source Sans 3 -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Google Fonts - DM Sans + Source Sans 3 (preload critical) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" 
+      rel="stylesheet" 
+    />
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
+    <!-- Structured Data - only on homepage -->
+    {Astro.url.pathname === '/' && (
+      <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LegalService",
         "name": "Solviro Legal",
         "description": "Kancelaria specjalizująca się w restrukturyzacjach i upadłościach",
-        "areaServed": "Polska",
+        "url": "https://solviro.pl",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Polska"
+        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
+          "name": "Usługi prawne",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "name": "Restrukturyzacja" }},
-            { "@type": "Offer", "itemOffered": { "name": "Upadłość" }}
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Restrukturyzacja" }},
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Upadłość" }}
           ]
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+48-123-456-789",
+          "contactType": "customer service",
+          "availableLanguage": "Polish"
         }
-      }
-    </script>
+      })} />
+    )}
 
     <style>
-      /* Page transition styles */
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      @keyframes fadeOut {
-        from { opacity: 1; transform: translateY(0); }
-        to { opacity: 0; transform: translateY(-10px); }
-      }
-
+      /* Critical CSS for page transitions */
       ::view-transition-old(root) {
         animation: fadeOut 200ms ease-out forwards;
       }
 
       ::view-transition-new(root) {
-        animation: fadeIn 300ms ease-out forwards;
+        animation: fadeIn 250ms ease-out forwards;
       }
 
-      .page-transitioning {
-        opacity: 0;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeOut {
+        from { opacity: 1; transform: translateY(0); }
+        to { opacity: 0; transform: translateY(-8px); }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -93,47 +125,45 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     </style>
   </head>
   <body class="font-body antialiased" style="color: var(--color-text); background-color: var(--color-bg);">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Przejdź do treści</a>
+    
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />
     <MobileBottomCTA />
+    <TimedCTA />
 
     <script>
-      // Enable smooth page transitions for internal links
-      document.addEventListener('click', (e) => {
-        const link = (e.target as HTMLElement).closest('a');
-        if (!link) return;
+      // View Transitions for internal navigation
+      if (typeof document.startViewTransition === 'function') {
+        document.addEventListener('click', (e) => {
+          const link = (e.target as HTMLElement).closest('a');
+          if (!link) return;
 
-        const href = link.getAttribute('href');
+          const href = link.getAttribute('href');
+          if (!href) return;
 
-        // Skip external links, anchors, and special protocols
-        if (!href ||
+          // Skip non-navigable links
+          if (
             href.startsWith('#') ||
             href.startsWith('mailto:') ||
             href.startsWith('tel:') ||
-            href.startsWith('http://') ||
-            href.startsWith('https://') ||
+            href.startsWith('http') ||
             link.hasAttribute('download') ||
-            link.getAttribute('target') === '_blank') {
-          return;
-        }
+            link.getAttribute('target') === '_blank'
+          ) {
+            return;
+          }
 
-        // Check if View Transitions API is supported
-        if (!document.startViewTransition) {
-          return; // Let normal navigation happen
-        }
-
-        e.preventDefault();
-
-        // Start view transition
-        document.startViewTransition(async () => {
-          // Navigate to new page
-          window.location.href = href;
+          e.preventDefault();
+          document.startViewTransition(() => {
+            window.location.href = href;
+          });
         });
-      });
+      }
     </script>
   </body>
 </html>
-

@@ -3,140 +3,209 @@ const navLinks = [
   { href: '/o-nas', label: 'O nas' },
   { href: '/restrukturyzacja', label: 'Restrukturyzacja' },
   { href: '/upadlosc', label: 'Upadłość' },
+  { href: '/inne-uslugi', label: 'Inne usługi' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
-
-const ctaText = "Umów wizytę";
 ---
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  style="background-color: color-mix(in srgb, var(--color-bg) 95%, transparent); backdrop-filter: blur(12px);"
-  transition:persist
+  class="fixed top-0 left-0 right-0 z-50"
+  style="background-color: color-mix(in srgb, var(--color-primary) 97%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);"
 >
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
+    <div class="flex items-center justify-between h-16 sm:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center">
-        <img src="/logo/logo_solviro-01.svg" alt="Solviro Legal" class="h-10 w-auto" />
+      <a href="/" class="flex items-center flex-shrink-0" aria-label="Solviro Legal - Strona główna">
+        <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 796.51 139.376" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M56.613,139.376c7.315,0,14.076-.941,20.092-2.802,5.963-1.841,11.155-4.545,15.433-8.033,4.249-3.455,7.611-7.797,9.993-12.906,2.38-5.117,3.589-11.053,3.589-17.647v-.397c0-5.819-.924-10.871-2.747-15.007-1.81-4.116-4.541-7.757-8.12-10.822-3.627-3.11-8.162-5.823-13.48-8.061-5.393-2.267-11.633-4.339-18.545-6.163-5.886-1.565-10.877-2.968-14.839-4.172-4.01-1.22-7.226-2.534-9.561-3.909-2.498-1.46-4.268-3.171-5.259-5.077-.971-1.861-1.464-4.067-1.464-6.557v-.393c0-3.917,1.699-7.226,5.052-9.837,3.238-2.514,8.053-3.791,14.315-3.791,6.111,0,12.302,1.269,18.403,3.775,5.592,2.299,11.374,5.417,17.207,9.286l14.127-20.485c-6.662-5.113-14.011-9.115-21.861-11.913C70.649,1.5,61.406,0,51.47,0c-6.926,0-13.34.973-19.064,2.887-5.689,1.902-10.648,4.667-14.739,8.211-4.071,3.532-7.28,7.781-9.539,12.639-2.248,4.845-3.39,10.388-3.39,16.463v.397c0,6.601,1.052,12.168,3.124,16.552,2.072,4.379,5.024,8.085,8.777,11.013,3.82,2.984,8.552,5.539,14.068,7.587,5.624,2.088,11.976,4.002,18.879,5.685,5.877,1.472,10.703,2.883,14.348,4.205,3.722,1.354,6.697,2.737,8.842,4.112,2.287,1.472,3.876,3.118,4.732,4.886.827,1.735,1.245,3.726,1.245,5.924v.393c0,4.631-1.999,8.296-5.944,10.899-3.734,2.469-8.983,3.722-15.601,3.722-8.11,0-15.684-1.577-22.514-4.695-6.328-2.879-12.59-6.751-18.63-11.516L0,118.603c7.834,6.853,16.596,12.035,26.066,15.416,9.948,3.556,20.225,5.356,30.547,5.356Z" fill="#fff"/>
+          <polygon points="299.927 112.906 299.927 2.084 272.21 2.084 272.21 137.291 369.616 137.291 359.994 112.906 299.927 112.906" fill="#fff"/>
+          <rect x="497.195" y="2.084" width="27.717" height="135.207" fill="#fff"/>
+          <path d="M546.564,89.169h40.07l31.437,48.122h31.66l-35.184-50.596,2.003-.584c18.47-5.421,27.836-19.009,27.836-40.382,0-28.959-17.069-43.646-50.73-43.646h-47.093v24.382h45.842c16.047,0,23.846,6.301,23.846,19.264,0,12.825-7.799,19.058-23.846,19.058h-45.842v24.382Z" fill="#d8b568"/>
+          <path d="M186.245.059C147.791.059,116.617,31.233,116.617,69.688s31.174,69.629,69.629,69.629,69.629-31.174,69.629-69.629S224.7.059,186.245.059ZM186.245,112.699c-23.755,0-43.012-19.257-43.012-43.011s19.257-43.011,43.012-43.011,43.012,19.257,43.012,43.011-19.257,43.011-43.012,43.011Z" fill="#fff"/>
+          <path d="M726.882.059c-38.455,0-69.629,31.174-69.629,69.629s31.174,69.629,69.629,69.629,69.629-31.174,69.629-69.629S765.336.059,726.882.059ZM726.882,112.699c-23.755,0-43.012-19.257-43.012-43.011s19.257-43.011,43.012-43.011,43.012,19.257,43.012,43.011-19.257,43.011-43.012,43.011Z" fill="#d8b568"/>
+          <polygon points="450.499 2.084 412.54 104.062 374.385 2.084 344.632 2.084 397.982 137.292 426.067 137.292 479.416 2.084 450.499 2.084" fill="#fff"/>
+        </svg>
+        <span class="sr-only">Solviro Legal</span>
       </a>
 
-      <!-- Desktop Navigation - increased spacing -->
-      <nav class="hidden lg:flex items-center space-x-12">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="text-sm font-medium transition-colors duration-300 hover:opacity-80"
-            style="color: var(--color-text-muted);"
-          >
-            {link.label}
-          </a>
-        ))}
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center" aria-label="Nawigacja główna">
+        <ul class="flex items-center space-x-8 xl:space-x-10">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm font-medium transition-colors duration-200 hover:text-white py-2"
+                style="color: rgba(255, 255, 255, 0.75);"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </nav>
 
-      <!-- CTA Button with Typewriter Effect - Desktop only (hidden below lg breakpoint) -->
+      <!-- CTA Button - Desktop only -->
       <a
         href="/kontakt#formularz"
-        class="!hidden lg:!inline-flex items-center justify-center cta-button cta-typewriter"
+        class="hidden lg:inline-flex items-center justify-center cta-button cta-typewriter"
         id="header-cta"
       >
-        <span class="cta-typewriter-text" id="cta-text">{ctaText}</span><span class="cta-cursor" id="cta-cursor">|</span>
+        <span class="cta-typewriter-text" id="cta-text">Umów wizytę</span>
+        <span class="cta-cursor" id="cta-cursor" aria-hidden="true">|</span>
       </a>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
         type="button"
-        class="lg:hidden p-2 transition-colors duration-300"
-        style="color: var(--color-text);"
-        aria-label="Otwórz menu"
+        class="lg:hidden p-2 -mr-2 rounded-md transition-colors duration-200"
+        style="color: rgba(255, 255, 255, 0.9);"
+        aria-label="Otwórz menu nawigacji"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden" style="background-color: var(--color-bg); border-top: 1px solid var(--color-text-muted); border-opacity: 0.2;">
-    <div class="container mx-auto px-4 py-4 space-y-3">
+  <nav 
+    id="mobile-menu" 
+    class="hidden lg:hidden"
+    style="background-color: var(--color-bg); border-top: 1px solid rgba(0,0,0,0.1);"
+    aria-label="Nawigacja mobilna"
+  >
+    <ul class="container mx-auto px-4 py-4 space-y-1">
       {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class="block py-2 font-medium transition-colors duration-300"
-          style="color: var(--color-text-muted);"
-        >
-          {link.label}
-        </a>
+        <li>
+          <a
+            href={link.href}
+            class="block py-3 px-2 font-medium transition-colors duration-200 rounded-md hover:bg-gray-100"
+            style="color: var(--color-text);"
+          >
+            {link.label}
+          </a>
+        </li>
       ))}
-    </div>
-  </div>
+      <li class="pt-3">
+        <a
+          href="/kontakt#formularz"
+          class="block w-full text-center cta-button"
+        >
+          Umów wizytę
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
+
+<!-- Header spacer -->
+<div class="h-16 sm:h-20" aria-hidden="true"></div>
 
 <script>
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
   const ctaTextEl = document.getElementById('cta-text');
-  const ctaCursor = document.getElementById('cta-cursor');
   
-  const fullText = "Umów wizytę";
-  let animationTimeout = null;
+  const texts = ["Umów wizytę", "Bezpłatna konsultacja"];
+  let currentTextIndex = 0;
+  let animationTimeout: ReturnType<typeof setTimeout> | null = null;
 
+  // Mobile menu toggle
   mobileMenuButton?.addEventListener('click', () => {
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
     mobileMenu?.classList.toggle('hidden');
+    
+    // Update icon
+    if (menuIcon) {
+      menuIcon.setAttribute('d', isExpanded 
+        ? 'M4 6h16M4 12h16M4 18h16' 
+        : 'M6 18L18 6M6 6l12 12'
+      );
+    }
   });
 
-  // Typewriter animation - starts on page load, loops forever
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      if (menuIcon) {
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+  });
+
+  // Close mobile menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      mobileMenuButton?.focus();
+      if (menuIcon) {
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    }
+  });
+
+  // Typewriter animation
   function eraseText() {
     if (!ctaTextEl) return;
     
-    let currentText = ctaTextEl.textContent || '';
+    const currentText = ctaTextEl.textContent || '';
     
     if (currentText.length > 0) {
-      // Erase one letter (backspace effect)
       ctaTextEl.textContent = currentText.slice(0, -1);
-      animationTimeout = setTimeout(eraseText, 140); // 140ms per backspace (wolniej)
+      animationTimeout = setTimeout(eraseText, 100);
     } else {
-      // Text erased, wait a moment then start typing
-      animationTimeout = setTimeout(typeText, 600);
+      currentTextIndex = (currentTextIndex + 1) % texts.length;
+      animationTimeout = setTimeout(typeText, 400);
     }
   }
 
   function typeText() {
     if (!ctaTextEl) return;
     
-    let currentText = ctaTextEl.textContent || '';
-    
+    const currentText = ctaTextEl.textContent || '';
+    const fullText = texts[currentTextIndex];
+
     if (currentText.length < fullText.length) {
-      // Type one letter
       ctaTextEl.textContent = fullText.slice(0, currentText.length + 1);
-      animationTimeout = setTimeout(typeText, 120); // 120ms per letter (wolniej)
+      animationTimeout = setTimeout(typeText, 80);
     } else {
-      // Text fully typed, wait then start erasing
-      animationTimeout = setTimeout(eraseText, 3200); // Wait 3.2s before erasing
+      animationTimeout = setTimeout(eraseText, 2500);
     }
   }
 
-  // Start animation after page loads with a small delay
-  setTimeout(() => {
-    if (ctaTextEl) {
-      ctaTextEl.textContent = fullText;
-      setTimeout(eraseText, 1800); // Wait 1.8s then start erasing
-    }
-  }, 500);
+  // Check reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    setTimeout(() => {
+      if (ctaTextEl) {
+        ctaTextEl.textContent = texts[currentTextIndex];
+        setTimeout(eraseText, 1500);
+      }
+    }, 500);
+  }
 </script>
 
 <style>
   #main-header {
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
   }
 
   .cta-typewriter {
-    min-width: 165px;
-    justify-content: flex-start;
+    min-width: 200px;
+    justify-content: center;
   }
 
   .cta-typewriter-text {
@@ -147,11 +216,17 @@ const ctaText = "Umów wizytę";
     display: inline-block;
     font-weight: 400;
     animation: blink 1s step-end infinite;
-    margin-left: 1px;
+    margin-left: 2px;
   }
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-cursor {
+      animation: none;
+    }
   }
 </style>

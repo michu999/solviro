@@ -7,24 +7,29 @@ const { variant = 'dark' } = Astro.props;
 const isDark = variant === 'dark';
 ---
 
-<section class="py-20 sm:py-28" style={isDark ? 'background-color: var(--color-primary);' : 'background-color: var(--color-bg-subtle);'}>
+<section 
+  class="py-16 sm:py-20 lg:py-24" 
+  style={isDark ? 'background-color: var(--color-primary);' : 'background-color: var(--color-bg-subtle);'}
+  aria-labelledby="cta-heading"
+>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center">
+    <div class="max-w-2xl mx-auto text-center">
       <h2
-        class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
+        id="cta-heading"
+        class="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
         style={isDark ? 'color: var(--color-bg);' : 'color: var(--color-text);'}
       >
         Nie wiesz od czego zacząć?
       </h2>
       <p
-        class="text-lg leading-relaxed mb-10"
-        style={isDark ? 'color: rgba(255,255,255,0.7);' : 'color: var(--color-text-muted);'}
+        class="text-base sm:text-lg leading-relaxed mb-6 sm:mb-8"
+        style={isDark ? 'color: rgba(255,255,255,0.75);' : 'color: var(--color-text-muted);'}
       >
         Umów się na bezpłatną 15-minutową konsultację. Przeanalizujemy Twoją sytuację i zaproponujemy najlepsze rozwiązanie.
       </p>
       <a
         href="/kontakt#formularz"
-        class="cta-button"
+        class="cta-button text-base sm:text-lg"
       >
         Umów bezpłatną konsultację
       </a>

@@ -1,18 +1,25 @@
 ---
+// MobileBottomCTA.astro - Sticky bottom CTA for mobile/tablet
 ---
 
-<div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden" style="background-color: var(--color-cta-bg);" transition:persist>
+<div 
+  class="fixed bottom-0 left-0 right-0 z-40 lg:hidden safe-area-bottom" 
+  style="background-color: var(--color-cta-bg);"
+  role="complementary"
+  aria-label="Szybki kontakt"
+>
   <a
     href="/kontakt#formularz"
-    class="flex items-center justify-center w-full py-4 px-4 font-semibold text-base transition-all duration-300 mobile-cta-typewriter"
-    style="color: var(--color-cta-text); min-height: 56px;"
+    class="flex items-center justify-center w-full py-3 px-4 font-semibold text-base mobile-cta-typewriter"
+    style="color: var(--color-cta-text); min-height: 52px;"
   >
-    <span class="mobile-cta-text" id="mobile-cta-text">Umów wizytę</span><span class="mobile-cta-cursor" id="mobile-cta-cursor">|</span>
+    <span class="mobile-cta-text" id="mobile-cta-text">Umów wizytę</span>
+    <span class="mobile-cta-cursor" id="mobile-cta-cursor" aria-hidden="true">|</span>
   </a>
 </div>
 
-<!-- Spacer to prevent content from being hidden behind the fixed CTA on mobile/tablet -->
-<div class="h-14 lg:hidden"></div>
+<!-- Spacer to prevent content from being hidden behind the fixed CTA -->
+<div class="h-[52px] lg:hidden" aria-hidden="true"></div>
 
 <script>
   const mobileCtaTextEl = document.getElementById('mobile-cta-text');
@@ -22,40 +29,49 @@
   function eraseMobileText() {
     if (!mobileCtaTextEl) return;
 
-    let currentText = mobileCtaTextEl.textContent || '';
+    const currentText = mobileCtaTextEl.textContent || '';
 
     if (currentText.length > 0) {
       mobileCtaTextEl.textContent = currentText.slice(0, -1);
-      mobileAnimationTimeout = setTimeout(eraseMobileText, 140);
+      mobileAnimationTimeout = setTimeout(eraseMobileText, 100);
     } else {
-      mobileAnimationTimeout = setTimeout(typeMobileText, 600);
+      mobileAnimationTimeout = setTimeout(typeMobileText, 400);
     }
   }
 
   function typeMobileText() {
     if (!mobileCtaTextEl) return;
 
-    let currentText = mobileCtaTextEl.textContent || '';
+    const currentText = mobileCtaTextEl.textContent || '';
 
     if (currentText.length < fullTextMobile.length) {
       mobileCtaTextEl.textContent = fullTextMobile.slice(0, currentText.length + 1);
-      mobileAnimationTimeout = setTimeout(typeMobileText, 120);
+      mobileAnimationTimeout = setTimeout(typeMobileText, 80);
     } else {
-      mobileAnimationTimeout = setTimeout(eraseMobileText, 3200);
+      mobileAnimationTimeout = setTimeout(eraseMobileText, 2500);
     }
   }
 
-  setTimeout(() => {
-    if (mobileCtaTextEl) {
-      mobileCtaTextEl.textContent = fullTextMobile;
-      setTimeout(eraseMobileText, 1800);
-    }
-  }, 500);
+  // Check reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    setTimeout(() => {
+      if (mobileCtaTextEl) {
+        mobileCtaTextEl.textContent = fullTextMobile;
+        setTimeout(eraseMobileText, 1500);
+      }
+    }, 500);
+  }
 </script>
 
 <style>
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
   .mobile-cta-typewriter {
-    min-width: 165px;
+    min-width: 150px;
     justify-content: center;
   }
 
@@ -67,11 +83,17 @@
     display: inline-block;
     font-weight: 400;
     animation: mobileBlink 1s step-end infinite;
-    margin-left: 1px;
+    margin-left: 2px;
   }
 
   @keyframes mobileBlink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-cta-cursor {
+      animation: none;
+    }
   }
 </style>
