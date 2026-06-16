@@ -8,7 +8,7 @@ import CTASection from '../components/CTASection.astro';
   
   <PageHero
     title="Skontaktuj się z nami"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pierwsza konsultacja jest bezpłatna."
+    description="Pierwsza konsultacja jest bezpłatna. Umów się na rozmowę i dowiedz się, jak możemy pomóc."
     breadcrumb={[
       { label: 'Strona główna', href: '/' },
       { label: 'Kontakt', href: '/kontakt' }
@@ -16,19 +16,19 @@ import CTASection from '../components/CTASection.astro';
   />
 
   <!-- Contact Section -->
-  <section id="formularz" class="py-20 sm:py-28" style="background-color: var(--color-bg);">
+  <section id="formularz" class="py-16 sm:py-20 lg:py-24" style="background-color: var(--color-bg);">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <!-- Left Column - Contact Info -->
         <div>
-          <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-8" style="color: var(--color-text);">
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-6 sm:mb-8" style="color: var(--color-text);">
             Dane kontaktowe
           </h2>
 
-          <div class="space-y-8">
+          <address class="not-italic space-y-6 sm:space-y-8">
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0" style="background-color: var(--color-bg-subtle);">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -44,13 +44,13 @@ import CTASection from '../components/CTASection.astro';
 
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0" style="background-color: var(--color-bg-subtle);">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
               <div>
                 <h3 class="font-heading text-lg font-semibold mb-2" style="color: var(--color-text);">Telefon</h3>
-                <a href="tel:+48123456789" class="transition-colors duration-300" style="color: var(--color-text-muted);">
+                <a href="tel:+48123456789" class="transition-colors duration-200 hover:underline" style="color: var(--color-text-muted);">
                   +48 123 456 789
                 </a>
               </div>
@@ -58,13 +58,13 @@ import CTASection from '../components/CTASection.astro';
 
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0" style="background-color: var(--color-bg-subtle);">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
                 <h3 class="font-heading text-lg font-semibold mb-2" style="color: var(--color-text);">E-mail</h3>
-                <a href="mailto:kontakt@solviro.pl" class="transition-colors duration-300" style="color: var(--color-text-muted);">
+                <a href="mailto:kontakt@solviro.pl" class="transition-colors duration-200 hover:underline" style="color: var(--color-text-muted);">
                   kontakt@solviro.pl
                 </a>
               </div>
@@ -72,7 +72,7 @@ import CTASection from '../components/CTASection.astro';
 
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 rounded-md flex items-center justify-center flex-shrink-0" style="background-color: var(--color-bg-subtle);">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -84,85 +84,92 @@ import CTASection from '../components/CTASection.astro';
                 </p>
               </div>
             </div>
-          </div>
+          </address>
         </div>
 
         <!-- Right Column - Form -->
-        <div class="p-8 lg:p-10 rounded-lg" style="background-color: var(--color-bg-subtle);">
-          <h2 class="font-heading text-2xl font-bold mb-6" style="color: var(--color-text);">
-            Wyślij wiadomość
+        <div class="p-6 sm:p-8 lg:p-10 rounded-lg" style="background-color: var(--color-bg-subtle);">
+          <h2 class="font-heading text-xl sm:text-2xl font-bold mb-6" style="color: var(--color-text);">
+            Jak możemy Ci pomóc?
           </h2>
-          <form id="contact-form" class="space-y-6">
-            <div>
-              <label for="name" class="block font-medium mb-2" style="color: var(--color-text);">
-                Imię i nazwisko <span style="color: var(--color-accent);">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300"
-                style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="Jan Kowalski"
-              />
-            </div>
+          
+          <form id="contact-form" class="space-y-5" novalidate>
+            <!-- Service Selector -->
+            <fieldset>
+              <legend class="sr-only">Wybierz rodzaj usługi</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <button type="button" class="service-card" data-service="restrukturyzacja">
+                  Restrukturyzacja
+                </button>
+                <button type="button" class="service-card" data-service="upadlosc">
+                  Upadłość
+                </button>
+                <button type="button" class="service-card" data-service="inne">
+                  Inne usługi
+                </button>
+              </div>
+            </fieldset>
+            <input type="hidden" name="service" id="service-input" value="" />
 
             <div>
-              <label for="email" class="block font-medium mb-2" style="color: var(--color-text);">
-                Adres e-mail <span style="color: var(--color-accent);">*</span>
-              </label>
+              <label for="email" class="sr-only">Adres e-mail</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
-                class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300"
-                style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="jan@example.com"
+                autocomplete="email"
+                class="w-full"
+                placeholder="Adres e-mail"
               />
             </div>
 
             <div>
-              <label for="phone" class="block font-medium mb-2" style="color: var(--color-text);">
-                Numer telefonu <span style="color: var(--color-accent);">*</span>
-              </label>
+              <label for="phone" class="sr-only">Numer telefonu</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 required
-                class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300"
-                style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="+48 123 456 789"
+                autocomplete="tel"
+                class="w-full"
+                placeholder="Numer telefonu"
               />
             </div>
 
-            <div>
-              <label for="message" class="block font-medium mb-2" style="color: var(--color-text);">
-                Wiadomość <span style="color: var(--color-accent);">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                class="w-full px-4 py-3 rounded-md border outline-none transition-colors duration-300 resize-none"
-                style="border-color: var(--color-text-muted); background-color: var(--color-bg);"
-                placeholder="Opisz swoją sprawę..."
-              ></textarea>
+            <!-- GDPR Checkbox -->
+            <div class="space-y-2">
+              <div class="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="gdpr"
+                  name="gdpr"
+                  required
+                  class="mt-0.5 flex-shrink-0"
+                />
+                <label for="gdpr" class="text-sm cursor-pointer leading-snug" style="color: var(--color-text-muted);">
+                  Wyrażam zgodę na przetwarzanie moich danych osobowych *
+                  <button type="button" id="gdpr-toggle" class="underline ml-1" style="color: var(--color-accent);">rozwiń</button>
+                </label>
+              </div>
+              <div id="gdpr-full-text" class="hidden text-xs pl-8 leading-relaxed" style="color: var(--color-text-muted);">
+                Wyrażam zgodę na przetwarzanie moich danych osobowych przez Solviro Legal z siedzibą w Polsce, w celu odpowiedzi na przesłane zapytanie, zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO). Podanie danych jest dobrowolne, jednak niezbędne do udzielenia odpowiedzi. Przysługuje Pani/Panu prawo dostępu do danych, ich sprostowania, usunięcia lub ograniczenia przetwarzania.
+              </div>
+              <p id="gdpr-error" class="hidden text-sm pl-8" style="color: var(--color-error);" role="alert">
+                Zgoda na przetwarzanie danych jest wymagana
+              </p>
             </div>
 
             <button
               type="submit"
-              class="w-full px-8 py-4 rounded-md font-semibold text-base transition-all duration-300 hover:scale-105 hover:brightness-110"
-              style="background-color: var(--color-accent); color: var(--color-text);"
+              class="w-full cta-button"
+              id="contact-submit"
             >
-              Wyślij wiadomość
+              <span id="contact-submit-text">Umów bezpłatną konsultację</span>
             </button>
 
             <p class="text-sm text-center" style="color: var(--color-text-muted);">
-              Wysyłając formularz, wyrażasz zgodę na przetwarzanie danych osobowych.
+              Oddzwonimy w ciągu 24 godzin
             </p>
           </form>
         </div>
@@ -173,3 +180,86 @@ import CTASection from '../components/CTASection.astro';
   <CTASection variant="dark" />
 
 </Layout>
+
+<script>
+  const serviceCards = document.querySelectorAll('#contact-form .service-card');
+  const serviceInput = document.getElementById('service-input') as HTMLInputElement | null;
+
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      serviceCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      if (serviceInput) {
+        serviceInput.value = (card as HTMLElement).dataset.service || '';
+      }
+    });
+  });
+
+  // GDPR toggle
+  const gdprToggle = document.getElementById('gdpr-toggle');
+  const gdprFullText = document.getElementById('gdpr-full-text');
+
+  gdprToggle?.addEventListener('click', () => {
+    const isHidden = gdprFullText?.classList.contains('hidden');
+    gdprFullText?.classList.toggle('hidden');
+    if (gdprToggle) {
+      gdprToggle.textContent = isHidden ? 'zwiń' : 'rozwiń';
+    }
+  });
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const gdprCheckbox = document.getElementById('gdpr') as HTMLInputElement | null;
+  const gdprError = document.getElementById('gdpr-error');
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+  const submitText = document.getElementById('contact-submit-text');
+  const spinner = document.getElementById('contact-spinner');
+
+  let isSubmitting = false;
+
+  function setLoading(loading: boolean) {
+    isSubmitting = loading;
+    if (submitBtn) {
+      submitBtn.disabled = loading;
+    }
+    submitText?.classList.toggle('opacity-50', loading);
+    spinner?.classList.toggle('hidden', !loading);
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    // Validate GDPR checkbox
+    if (!gdprCheckbox?.checked) {
+      gdprError?.classList.remove('hidden');
+      gdprCheckbox?.focus();
+      return;
+    }
+    gdprError?.classList.add('hidden');
+
+    setLoading(true);
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        form.reset();
+        serviceCards.forEach(c => c.classList.remove('selected'));
+        alert('Dziękujemy! Skontaktujemy się wkrótce.');
+      } else {
+        throw new Error('Request failed');
+      }
+    } catch (err) {
+      alert('Wystąpił błąd. Spróbuj ponownie później.');
+    } finally {
+      setLoading(false);
+    }
+  });
+</script>

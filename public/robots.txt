@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /oferta/
+Sitemap: https://solviro.pl/sitemap-index.xml

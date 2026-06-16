@@ -6,36 +6,51 @@ const navLinks = [
   { href: '/o-nas', label: 'O nas' },
   { href: '/restrukturyzacja', label: 'Restrukturyzacja' },
   { href: '/upadlosc', label: 'Upadłość' },
+  { href: '/inne-uslugi', label: 'Inne usługi' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/kontakt', label: 'Kontakt' },
 ];
+
+const services = [
+  { href: '/restrukturyzacja', label: 'Postępowanie restrukturyzacyjne' },
+  { href: '/upadlosc', label: 'Upadłość firmy' },
+  { href: '/upadlosc', label: 'Upadłość konsumencka' },
+  { href: '/restrukturyzacja', label: 'Układ z wierzycielami' },
+];
 ---
 
-<footer style="background-color: var(--color-primary); color: var(--color-bg);">
+<footer style="background-color: var(--color-primary);" role="contentinfo">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Main Footer Content -->
-    <div class="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
       <!-- Brand -->
-      <div class="lg:col-span-1">
-        <a href="/" class="inline-block mb-6">
-          <span class="font-heading text-2xl font-bold" style="color: var(--color-bg);">
-            Solviro<span style="color: var(--color-accent);">.</span>
-          </span>
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a href="/" class="inline-block mb-6" aria-label="Solviro Legal - Strona główna">
+          <svg class="h-7 sm:h-8 w-auto" viewBox="0 0 796.51 139.376" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M56.613,139.376c7.315,0,14.076-.941,20.092-2.802,5.963-1.841,11.155-4.545,15.433-8.033,4.249-3.455,7.611-7.797,9.993-12.906,2.38-5.117,3.589-11.053,3.589-17.647v-.397c0-5.819-.924-10.871-2.747-15.007-1.81-4.116-4.541-7.757-8.12-10.822-3.627-3.11-8.162-5.823-13.48-8.061-5.393-2.267-11.633-4.339-18.545-6.163-5.886-1.565-10.877-2.968-14.839-4.172-4.01-1.22-7.226-2.534-9.561-3.909-2.498-1.46-4.268-3.171-5.259-5.077-.971-1.861-1.464-4.067-1.464-6.557v-.393c0-3.917,1.699-7.226,5.052-9.837,3.238-2.514,8.053-3.791,14.315-3.791,6.111,0,12.302,1.269,18.403,3.775,5.592,2.299,11.374,5.417,17.207,9.286l14.127-20.485c-6.662-5.113-14.011-9.115-21.861-11.913C70.649,1.5,61.406,0,51.47,0c-6.926,0-13.34.973-19.064,2.887-5.689,1.902-10.648,4.667-14.739,8.211-4.071,3.532-7.28,7.781-9.539,12.639-2.248,4.845-3.39,10.388-3.39,16.463v.397c0,6.601,1.052,12.168,3.124,16.552,2.072,4.379,5.024,8.085,8.777,11.013,3.82,2.984,8.552,5.539,14.068,7.587,5.624,2.088,11.976,4.002,18.879,5.685,5.877,1.472,10.703,2.883,14.348,4.205,3.722,1.354,6.697,2.737,8.842,4.112,2.287,1.472,3.876,3.118,4.732,4.886.827,1.735,1.245,3.726,1.245,5.924v.393c0,4.631-1.999,8.296-5.944,10.899-3.734,2.469-8.983,3.722-15.601,3.722-8.11,0-15.684-1.577-22.514-4.695-6.328-2.879-12.59-6.751-18.63-11.516L0,118.603c7.834,6.853,16.596,12.035,26.066,15.416,9.948,3.556,20.225,5.356,30.547,5.356Z" fill="#fff"/>
+            <polygon points="299.927 112.906 299.927 2.084 272.21 2.084 272.21 137.291 369.616 137.291 359.994 112.906 299.927 112.906" fill="#fff"/>
+            <rect x="497.195" y="2.084" width="27.717" height="135.207" fill="#fff"/>
+            <path d="M546.564,89.169h40.07l31.437,48.122h31.66l-35.184-50.596,2.003-.584c18.47-5.421,27.836-19.009,27.836-40.382,0-28.959-17.069-43.646-50.73-43.646h-47.093v24.382h45.842c16.047,0,23.846,6.301,23.846,19.264,0,12.825-7.799,19.058-23.846,19.058h-45.842v24.382Z" fill="#d8b568"/>
+            <path d="M186.245.059C147.791.059,116.617,31.233,116.617,69.688s31.174,69.629,69.629,69.629,69.629-31.174,69.629-69.629S224.7.059,186.245.059ZM186.245,112.699c-23.755,0-43.012-19.257-43.012-43.011s19.257-43.011,43.012-43.011,43.012,19.257,43.012,43.011-19.257,43.011-43.012,43.011Z" fill="#fff"/>
+            <path d="M726.882.059c-38.455,0-69.629,31.174-69.629,69.629s31.174,69.629,69.629,69.629,69.629-31.174,69.629-69.629S765.336.059,726.882.059ZM726.882,112.699c-23.755,0-43.012-19.257-43.012-43.011s19.257-43.011,43.012-43.011,43.012,19.257,43.012,43.011-19.257,43.011-43.012,43.011Z" fill="#d8b568"/>
+            <polygon points="450.499 2.084 412.54 104.062 374.385 2.084 344.632 2.084 397.982 137.292 426.067 137.292 479.416 2.084 450.499 2.084" fill="#fff"/>
+          </svg>
+          <span class="sr-only">Solviro Legal</span>
         </a>
-        <p class="text-sm leading-relaxed mb-6" style="color: rgba(255,255,255,0.7);">
+        <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.8);">
           Kancelaria specjalizująca się w restrukturyzacjach i upadłościach. Pomagamy firmom wyjść z kryzysu finansowego.
         </p>
       </div>
 
       <!-- Navigation -->
       <div>
-        <h3 class="font-heading text-lg font-semibold mb-6" style="color: var(--color-bg);">Nawigacja</h3>
-        <ul class="space-y-3">
+        <h2 class="font-heading text-base font-semibold mb-4 sm:mb-6" style="color: var(--color-bg);">Nawigacja</h2>
+        <ul class="space-y-2 sm:space-y-3">
           {navLinks.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="text-sm transition-colors duration-300 hover:opacity-80"
+                class="text-sm transition-colors duration-200 hover:text-white"
                 style="color: rgba(255,255,255,0.7);"
               >
                 {link.label}
@@ -47,37 +62,28 @@ const navLinks = [
 
       <!-- Services -->
       <div>
-        <h3 class="font-heading text-lg font-semibold mb-6" style="color: var(--color-bg);">Usługi</h3>
-        <ul class="space-y-3">
-          <li>
-            <a href="/restrukturyzacja" class="text-sm transition-colors duration-300 hover:opacity-80" style="color: rgba(255,255,255,0.7);">
-              Postępowanie restrukturyzacyjne
-            </a>
-          </li>
-          <li>
-            <a href="/upadlosc" class="text-sm transition-colors duration-300 hover:opacity-80" style="color: rgba(255,255,255,0.7);">
-              Upadłość firmy
-            </a>
-          </li>
-          <li>
-            <a href="/upadlosc" class="text-sm transition-colors duration-300 hover:opacity-80" style="color: rgba(255,255,255,0.7);">
-              Upadłość konsumencka
-            </a>
-          </li>
-          <li>
-            <a href="/restrukturyzacja" class="text-sm transition-colors duration-300 hover:opacity-80" style="color: rgba(255,255,255,0.7);">
-              Układ z wierzycielami
-            </a>
-          </li>
+        <h2 class="font-heading text-base font-semibold mb-4 sm:mb-6" style="color: var(--color-bg);">Usługi</h2>
+        <ul class="space-y-2 sm:space-y-3">
+          {services.map((service) => (
+            <li>
+              <a 
+                href={service.href} 
+                class="text-sm transition-colors duration-200 hover:text-white" 
+                style="color: rgba(255,255,255,0.7);"
+              >
+                {service.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h3 class="font-heading text-lg font-semibold mb-6" style="color: var(--color-bg);">Kontakt</h3>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+        <h2 class="font-heading text-base font-semibold mb-4 sm:mb-6" style="color: var(--color-bg);">Kontakt</h2>
+        <address class="not-italic space-y-3 sm:space-y-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-bg);" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -85,36 +91,44 @@ const navLinks = [
               ul. Przykładowa 123<br />
               00-001 Warszawa
             </span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-bg);" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <a href="tel:+48123456789" class="text-sm transition-colors duration-300 hover:opacity-80" style="color: rgba(255,255,255,0.7);">
+            <a 
+              href="tel:+48123456789" 
+              class="text-sm transition-colors duration-200 hover:text-white" 
+              style="color: rgba(255,255,255,0.7);"
+            >
               +48 123 456 789
             </a>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-bg);" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <a href="mailto:kontakt@solviro.pl" class="text-sm transition-colors duration-300 hover:opacity-80" style="color: rgba(255,255,255,0.7);">
+            <a 
+              href="mailto:kontakt@solviro.pl" 
+              class="text-sm transition-colors duration-200 hover:text-white" 
+              style="color: rgba(255,255,255,0.7);"
+            >
               kontakt@solviro.pl
             </a>
-          </li>
-        </ul>
+          </div>
+        </address>
       </div>
     </div>
 
     <!-- Bottom Bar -->
-    <div class="py-8" style="border-top: 1px solid rgba(255,255,255,0.1);">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="py-6 sm:py-8" style="border-top: 1px solid rgba(255,255,255,0.1);">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
         <p class="text-sm" style="color: rgba(255,255,255,0.5);">
           © {currentYear} Solviro Legal. Wszelkie prawa zastrzeżone.
         </p>
-        <div class="text-sm" style="color: rgba(255,255,255,0.5);">
+        <div class="text-sm flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-1" style="color: rgba(255,255,255,0.5);">
           <span>NIP: 000-000-00-00</span>
-          <span class="mx-3">|</span>
+          <span aria-hidden="true">|</span>
           <span>KRS: 0000000000</span>
         </div>
       </div>

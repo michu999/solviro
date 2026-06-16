@@ -1,0 +1,232 @@
+---
+// TimedCTA.astro - Timed exit-intent popup CTA
+---
+
+<div 
+  id="timed-cta-overlay" 
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4" 
+  style="background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="timed-cta-title"
+>
+  <div 
+    class="relative w-full max-w-md rounded-xl p-6 sm:p-8 border shadow-xl" 
+    style="background-color: var(--color-bg); border-color: var(--color-accent);"
+  >
+    <!-- Close button -->
+    <button
+      id="timed-cta-close"
+      type="button"
+      class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-gray-100"
+      style="color: var(--color-text-muted);"
+      aria-label="Zamknij okno"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Content -->
+    <div id="timed-cta-content">
+      <h2 id="timed-cta-title" class="font-heading text-xl sm:text-2xl font-bold mb-3 pr-10" style="color: var(--color-text);">
+        Nie wiesz od czego zacząć?
+      </h2>
+      <p class="text-sm sm:text-base mb-6" style="color: var(--color-text-muted);">
+        Umów się na bezpłatną 15-minutową konsultację.
+      </p>
+
+      <form id="timed-cta-form" class="space-y-4" novalidate>
+        <div>
+          <label for="timed-cta-phone" class="sr-only">Numer telefonu</label>
+          <input
+            type="tel"
+            id="timed-cta-phone"
+            name="phone"
+            required
+            autocomplete="tel"
+            class="w-full"
+            placeholder="Twój numer telefonu"
+          />
+        </div>
+
+        <div class="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="timed-cta-consent"
+            name="consent"
+            required
+            class="mt-0.5 flex-shrink-0"
+          />
+          <label for="timed-cta-consent" class="text-sm cursor-pointer leading-snug" style="color: var(--color-text-muted);">
+            Akceptuję kontakt w sprawie mojej sytuacji
+          </label>
+        </div>
+
+        <p id="timed-cta-error" class="hidden text-sm" style="color: var(--color-error);" role="alert">
+          Wypełnij wszystkie pola i zaakceptuj zgodę.
+        </p>
+
+        <button
+          type="submit"
+          class="w-full cta-button"
+          id="timed-cta-submit"
+        >
+          <span id="timed-cta-submit-text">Oddzwoń do mnie</span>
+          <span id="timed-cta-spinner" class="hidden spinner ml-2"></span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Thank you message (hidden by default) -->
+    <div id="timed-cta-thanks" class="hidden text-center py-6">
+      <div class="w-14 h-14 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: var(--color-accent);">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 class="font-heading text-xl font-bold mb-2" style="color: var(--color-text);">
+        Dziękujemy!
+      </h3>
+      <p class="text-sm" style="color: var(--color-text-muted);">
+        Oddzwonimy wkrótce.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('timed-cta-overlay');
+  const closeBtn = document.getElementById('timed-cta-close');
+  const form = document.getElementById('timed-cta-form') as HTMLFormElement | null;
+  const phoneInput = document.getElementById('timed-cta-phone') as HTMLInputElement | null;
+  const consentInput = document.getElementById('timed-cta-consent') as HTMLInputElement | null;
+  const errorMsg = document.getElementById('timed-cta-error');
+  const content = document.getElementById('timed-cta-content');
+  const thanks = document.getElementById('timed-cta-thanks');
+  const submitBtn = document.getElementById('timed-cta-submit') as HTMLButtonElement | null;
+  const submitText = document.getElementById('timed-cta-submit-text');
+  const spinner = document.getElementById('timed-cta-spinner');
+
+  const STORAGE_KEY = 'ctaShown';
+  const DELAY_MS = 5 * 60 * 1000; // 5 minutes
+
+  let hasShown = false;
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  let isSubmitting = false;
+
+  function showPopup() {
+    if (hasShown || sessionStorage.getItem(STORAGE_KEY) === 'true') return;
+    
+    hasShown = true;
+    overlay?.classList.remove('hidden');
+    overlay?.classList.add('flex');
+    phoneInput?.focus();
+    
+    // Trap focus
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePopup() {
+    overlay?.classList.add('hidden');
+    overlay?.classList.remove('flex');
+    sessionStorage.setItem(STORAGE_KEY, 'true');
+    document.body.style.overflow = '';
+  }
+
+  function showThanks() {
+    content?.classList.add('hidden');
+    thanks?.classList.remove('hidden');
+    
+    setTimeout(() => {
+      hidePopup();
+    }, 2500);
+  }
+
+  function setLoading(loading: boolean) {
+    isSubmitting = loading;
+    if (submitBtn) {
+      submitBtn.disabled = loading;
+      submitBtn.setAttribute('aria-disabled', String(loading));
+    }
+    submitText?.classList.toggle('opacity-50', loading);
+    spinner?.classList.toggle('hidden', !loading);
+  }
+
+  // Check if already shown this session
+  if (sessionStorage.getItem(STORAGE_KEY) !== 'true') {
+    // Timer trigger - 5 minutes
+    timeoutId = setTimeout(showPopup, DELAY_MS);
+
+    // Exit intent trigger (mouse leaving toward top) - desktop only
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0) {
+          showPopup();
+        }
+      });
+    }
+  }
+
+  // Close button
+  closeBtn?.addEventListener('click', () => {
+    hidePopup();
+    if (timeoutId) clearTimeout(timeoutId);
+  });
+
+  // Click outside to close
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      hidePopup();
+      if (timeoutId) clearTimeout(timeoutId);
+    }
+  });
+
+  // Escape key to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay?.classList.contains('hidden')) {
+      hidePopup();
+      if (timeoutId) clearTimeout(timeoutId);
+    }
+  });
+
+  // Form submit
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    const phone = phoneInput?.value?.trim();
+    const consent = consentInput?.checked;
+
+    if (!phone || !consent) {
+      errorMsg?.classList.remove('hidden');
+      return;
+    }
+
+    errorMsg?.classList.add('hidden');
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone,
+          gdpr: 'on',
+          source: 'timed_cta'
+        })
+      });
+      
+      if (response.ok) {
+        showThanks();
+      } else {
+        throw new Error('Request failed');
+      }
+    } catch (err) {
+      // Still show thanks for graceful degradation
+      showThanks();
+    } finally {
+      setLoading(false);
+    }
+  });
+</script>

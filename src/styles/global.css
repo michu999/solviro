@@ -1,89 +1,44 @@
 @import "tailwindcss";
 
-/* Theme Variables */
-:root,
-[data-theme="warm"] {
-  --color-primary: #1a1a1a;
-  --color-accent: #C9B037;
-  --color-accent-light: #d4be4f;
-  --color-accent-dark: #b59d2f;
+/* =========================
+   BASE THEME (WARM - ONLY THEME)
+========================= */
+:root {
+  --color-primary: #29292d;
+  --color-accent: #d7b55e;
+  --color-accent-light: #d8bc6a;
+  --color-accent-dark: #a88c3e;
+
   --color-bg: #ffffff;
-  --color-bg-subtle: #F5F5DC;
-  --color-text: #1a1a1a;
-  --color-text-muted: #A9A9A9;
+  --color-bg-subtle: #f7f1e5;
 
-  /* Brand palette */
-  --color-sand:      #F8F3E9;  /* najjaśniejszy — tła sekcji, karty */
-  --color-gold-warm: #A78B50;  /* ciepły złoty — alternatywa dla accent */
-  --color-brown:     #5D4116;  /* głęboki brąz — nagłówki, mocne akcenty */
-  --color-teal:      #00A99D;  /* zimny kontrast — CTA, badges, highlights */
+  --color-text: #2b2b2b;
+  --color-text-muted: #6b6b6b;
+
+  /* Brand */
+  --color-sand: #f8f3e9;
+  --color-gold-warm: #c6a756;
+  --color-brown: #5a3f1b;
+  --color-teal: #00a99d;
+
+  /* CTA specific */
+  --color-cta-bg: #d7b55e;
+  --color-cta-text: #1a1a1a;
+  --color-cta-hover: #c9a84f;
+
+  /* Focus states */
+  --color-focus: #d7b55e;
+
+  /* Error state */
+  --color-error: #dc2626;
 }
 
-[data-theme="forest"] {
-  --color-primary: #1a3a2a;
-  --color-accent: #4a9e6b;
-  --color-accent-light: #5cb67d;
-  --color-accent-dark: #3d8759;
-  --color-bg: #f8faf8;
-  --color-bg-subtle: #e8f2ec;
-  --color-text: #1a3a2a;
-  --color-text-muted: #6b8f78;
-
-  /* Brand palette */
-  --color-sand:      #f0f5f1;
-  --color-gold-warm: #7a9e6b;
-  --color-brown:     #2d5a3a;
-  --color-teal:      #00A99D;
-}
-
-[data-theme="slate"] {
-  --color-primary: #1e2a3a;
-  --color-accent: #4a7ab5;
-  --color-accent-light: #5b8cc7;
-  --color-accent-dark: #3d689a;
-  --color-bg: #f8f9fb;
-  --color-bg-subtle: #e8edf4;
-  --color-text: #1e2a3a;
-  --color-text-muted: #7a8fa6;
-
-  /* Brand palette */
-  --color-sand:      #f0f3f7;
-  --color-gold-warm: #7a8fb5;
-  --color-brown:     #1e3a5a;
-  --color-teal:      #00A99D;
-}
-
-[data-theme="brand"] {
-  --color-primary:      #5D4116;
---color-accent:       #A78B50;
---color-accent-light: #b89660;
---color-accent-dark:  #8a7040;
---color-teal:         #00A99D;
-  --color-bg:           #F8F3E9;
-  --color-bg-subtle:    #EFE1CE;
-  --color-text:         #5D4116;
-  --color-text-muted:   #A78B50;
-
-  /* Brand palette */
-  --color-sand:      #F8F3E9;
-  --color-gold-warm: #A78B50;
-  --color-brown:     #5D4116;
-  --color-teal:      #00A99D;
-}
+/* =========================
+   THEME TOKENS
+========================= */
 
 @theme {
-  /* Colors - mapped to CSS variables */
   --color-black: var(--color-text);
-  --color-gray-50: #fafaf9;
-  --color-gray-100: #f5f5f4;
-  --color-gray-200: #e7e5e4;
-  --color-gray-300: #d6d3d1;
-  --color-gray-400: #a8a29e;
-  --color-gray-500: #78716c;
-  --color-gray-600: #57534e;
-  --color-gray-700: #44403c;
-  --color-gray-800: #292524;
-  --color-gray-900: #1c1917;
 
   --color-gold: var(--color-accent);
   --color-gold-light: var(--color-accent-light);
@@ -92,85 +47,404 @@
   --color-beige: var(--color-bg-subtle);
   --color-warm-gray: var(--color-text-muted);
 
-  /* New brand tokens */
   --color-sand: var(--color-sand);
   --color-gold-warm: var(--color-gold-warm);
   --color-brown: var(--color-brown);
   --color-teal: var(--color-teal);
 
-  /* Typography */
   --font-heading: 'DM Sans', sans-serif;
   --font-body: 'Source Sans 3', sans-serif;
 }
 
-/* Base styles */
+/* =========================
+   BASE STYLES
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body), sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .font-heading {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading), sans-serif;
 }
 
-.font-body {
-  font-family: var(--font-body);
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Button hover states */
+/* =========================
+   FOCUS STATES (ACCESSIBILITY)
+========================= */
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* =========================
+   BUTTON (UPGRADED)
+========================= */
+
 .btn-primary {
-  background-color: transparent;
-  border: 2px solid var(--color-text);
-  color: var(--color-text);
-  transition: all 0.3s ease;
+  background: var(--color-cta-bg);
+  border: 2px solid var(--color-cta-bg);
+  color: var(--color-cta-text);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-text);
-}
-
-/* Theme switcher - dev only */
-.theme-switcher {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 9999;
-  display: none;
-  gap: 4px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
+  background: var(--color-cta-hover);
+  border-color: var(--color-cta-hover);
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-size: 10px;
 }
 
-.theme-switcher.visible {
-  display: flex;
+.btn-primary:active {
+  transform: translateY(0);
 }
 
-.theme-switcher button {
-  padding: 4px 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-  font-size: 10px;
-  transition: all 0.2s;
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.theme-switcher button:hover {
-  background: #f0f0f0;
-}
-
-.theme-switcher button.active {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--color-text);
   color: var(--color-text);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.btn-secondary:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   CTA STYLES (HIGH EMPHASIS)
+========================= */
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-cta-bg);
+  color: var(--color-cta-text);
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  min-height: 52px;
+}
+
+.cta-button:hover {
+  background: var(--color-cta-hover);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:active {
+  transform: translateY(0) scale(1);
+}
+
+.cta-button:disabled,
+.cta-button[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   SERVICE SELECTOR CARDS
+========================= */
+
+.service-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border: 2px solid var(--color-text-muted);
+  background-color: var(--color-bg);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  min-height: 56px;
+  text-align: center;
+}
+
+.service-card:hover {
+  border-color: var(--color-accent);
+  background-color: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
+}
+
+.service-card.selected {
+  border-color: var(--color-accent);
+  background-color: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg));
+  color: var(--color-accent-dark);
+}
+
+/* =========================
+   FORM STYLES
+========================= */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  font-size: 16px; /* Prevents zoom on iOS */
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-text-muted);
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE-FIRST FIXES
+========================= */
+
+/* Ensure minimum touch targets */
+a,
+button {
+  min-height: 44px;
+}
+
+/* Navigation links exception */
+nav a {
+  min-height: auto;
+  padding: 0.5rem 0;
+}
+
+/* Better tap highlight on mobile */
+@media (hover: none) {
+  a:active,
+  button:active {
+    opacity: 0.85;
+  }
+}
+
+/* Prevent horizontal overflow */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   VIEW TRANSITIONS
+========================= */
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+::view-transition-old(root) {
+  animation: page-fade-out 200ms ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: page-fade-in 250ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  background: var(--color-cta-bg);
+  color: var(--color-cta-text);
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================
+   LOADING STATES
+========================= */
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   TYPOGRAPHY UTILITIES
+========================= */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

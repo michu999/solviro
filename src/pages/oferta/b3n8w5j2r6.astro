@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Oferta Jednorazowa — Solviro Legal" description="Ekskluzywna oferta jednorazowej usługi prawnej." noindex={true}>
+
+  <!-- Hero Section -->
+  <section class="min-h-[50vh] flex items-center justify-center pt-24 pb-16" style="background-color: var(--color-bg-subtle);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block font-semibold text-sm uppercase tracking-wider mb-4" style="color: var(--color-accent);">Oferta ekskluzywna</span>
+        <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6" style="color: var(--color-text);">
+          Pakiet <span style="color: var(--color-accent);">Jednorazowy</span>
+        </h1>
+        <p class="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed" style="color: var(--color-text-muted);">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kompleksowa analiza prawna Twojej sprawy bez długoterminowych zobowiązań.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer Details Section -->
+  <section class="py-20" style="background-color: var(--color-bg);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <!-- Details -->
+          <div>
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold mb-8" style="color: var(--color-text);">
+              Co otrzymujesz?
+            </h2>
+            <ul class="space-y-5">
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color: var(--color-accent);">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-1" style="color: var(--color-text);">Pełna analiza sytuacji prawnej</h3>
+                  <p style="color: var(--color-text-muted);">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color: var(--color-accent);">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-1" style="color: var(--color-text);">Szczegółowy raport pisemny</h3>
+                  <p style="color: var(--color-text-muted);">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color: var(--color-accent);">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-1" style="color: var(--color-text);">60-minutowa konsultacja wideo</h3>
+                  <p style="color: var(--color-text-muted);">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background-color: var(--color-accent);">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-cta-text);">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-1" style="color: var(--color-text);">Plan działania krok po kroku</h3>
+                  <p style="color: var(--color-text-muted);">Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Price Card -->
+          <div class="rounded-xl p-8 lg:p-10 border-2" style="background-color: var(--color-bg-subtle); border-color: var(--color-accent);">
+            <div class="text-center">
+              <p class="text-sm font-semibold uppercase tracking-wider mb-2" style="color: var(--color-accent);">Jednorazowo</p>
+              <div class="flex items-baseline justify-center gap-1 mb-2">
+                <span class="font-heading text-5xl sm:text-6xl font-bold" style="color: var(--color-text);">1 499</span>
+                <span class="text-xl font-semibold" style="color: var(--color-text-muted);">zł</span>
+              </div>
+              <p class="text-sm mb-8" style="color: var(--color-text-muted);">netto / płatność jednorazowa</p>
+
+              <a
+                href="https://buy.stripe.com/PLACEHOLDER_ONETIME"
+                class="w-full cta-button text-lg"
+                target="_blank"
+                rel="noopener"
+              >
+                Zamów teraz →
+              </a>
+
+              <p class="text-xs mt-6" style="color: var(--color-text-muted);">
+                Bezpieczna płatność przez Stripe. Realizacja w ciągu 5 dni roboczych.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="py-16" style="background-color: var(--color-bg-subtle);">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-sm" style="color: var(--color-text-muted);">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Skontaktuj się z nami, jeśli masz pytania.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+
